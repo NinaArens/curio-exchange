@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CurioExchange.Models;
+using Castle.Core.Logging;
 
 namespace CurioExchange.Controllers
 {
@@ -85,9 +86,13 @@ namespace CurioExchange.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
+                    Logger.WarnFormat("User {0} attempted login but password validation failed", model.Email);
                     return View(model);
             }
         }
+
+        // this is Castle.Core.Logging.ILogger, not log4net.Core.ILogger
+        public ILogger Logger { get; set; }
 
         //
         // GET: /Account/VerifyCode
