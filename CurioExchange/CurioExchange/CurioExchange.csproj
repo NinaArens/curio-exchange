@@ -199,11 +199,23 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="CurioExchangeContext.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\Piece.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Installers\LoggerInstaller.cs" />
+    <Compile Include="Migrations\201409012031556_InitialCreate.cs" />
+    <Compile Include="Migrations\201409012031556_InitialCreate.Designer.cs">
+      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409012051122_initial.cs" />
+    <Compile Include="Migrations\201409012051122_initial.Designer.cs">
+      <DependentUpon>201409012051122_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -285,6 +297,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409012031556_InitialCreate.resx">
+      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409012051122_initial.resx">
+      <DependentUpon>201409012051122_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
