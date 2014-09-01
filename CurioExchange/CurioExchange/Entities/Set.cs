@@ -5,12 +5,12 @@ using System.Web;
 
 namespace CurioExchange.Entities
 {
-    public class Piece : Entity
+    public class Set : Entity
     {
         public string Name { get; set; }
 
-        public virtual Set Set { get; set; }
+        public virtual ICollection<Piece> Pieces { get; set; }
 
-        public bool Rare { get; set; }
+        public virtual Collection Collection { get; set; }
     }
 }

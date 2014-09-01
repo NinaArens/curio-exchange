@@ -16,9 +16,10 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <ApplicationInsightsResourceId>/subscriptions/547f2a22-fecc-4e92-b0cc-b5ee530deac8/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/CurioExchange</ApplicationInsightsResourceId>
   </PropertyGroup>
@@ -199,9 +200,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PiecesController.cs" />
     <Compile Include="CurioExchangeContext.cs" />
+    <Compile Include="Entities\Collection.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Piece.cs" />
+    <Compile Include="Entities\Set.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,6 +218,18 @@
     <Compile Include="Migrations\201409012051122_initial.cs" />
     <Compile Include="Migrations\201409012051122_initial.Designer.cs">
       <DependentUpon>201409012051122_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409012146005_Set.cs" />
+    <Compile Include="Migrations\201409012146005_Set.Designer.cs">
+      <DependentUpon>201409012146005_Set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409012150016_Collection.cs" />
+    <Compile Include="Migrations\201409012150016_Collection.Designer.cs">
+      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409012206183_PieceRare.cs" />
+    <Compile Include="Migrations\201409012206183_PieceRare.Designer.cs">
+      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -286,6 +302,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Pieces\Create.cshtml" />
+    <Content Include="Views\Pieces\Delete.cshtml" />
+    <Content Include="Views\Pieces\Details.cshtml" />
+    <Content Include="Views\Pieces\Edit.cshtml" />
+    <Content Include="Views\Pieces\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +325,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409012051122_initial.resx">
       <DependentUpon>201409012051122_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409012146005_Set.resx">
+      <DependentUpon>201409012146005_Set.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409012150016_Collection.resx">
+      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409012206183_PieceRare.resx">
+      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

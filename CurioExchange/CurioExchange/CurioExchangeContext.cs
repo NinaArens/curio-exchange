@@ -10,5 +10,7 @@ namespace CurioExchange
     public class CurioExchangeContext : DbContext
     {
         public DbSet<Piece> Pieces { get; set; }
+        public DbSet<Set> Sets { get; set; }
+        public DbSet<Collection> Collections { get; set; }
     }
 }
