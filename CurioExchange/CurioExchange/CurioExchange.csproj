@@ -41,6 +41,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
@@ -192,6 +198,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agents\PieceAgent.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -201,40 +208,22 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PiecesController.cs" />
-    <Compile Include="CurioExchangeContext.cs" />
-    <Compile Include="Entities\Collection.cs" />
-    <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\Piece.cs" />
-    <Compile Include="Entities\Set.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Installers\BusinessLogicInstaller.cs" />
+    <Compile Include="Installers\ContextInstaller.cs" />
     <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Installers\LoggerInstaller.cs" />
-    <Compile Include="Migrations\201409012031556_InitialCreate.cs" />
-    <Compile Include="Migrations\201409012031556_InitialCreate.Designer.cs">
-      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409012051122_initial.cs" />
-    <Compile Include="Migrations\201409012051122_initial.Designer.cs">
-      <DependentUpon>201409012051122_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409012146005_Set.cs" />
-    <Compile Include="Migrations\201409012146005_Set.Designer.cs">
-      <DependentUpon>201409012146005_Set.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409012150016_Collection.cs" />
-    <Compile Include="Migrations\201409012150016_Collection.Designer.cs">
-      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201409012206183_PieceRare.cs" />
-    <Compile Include="Migrations\201409012206183_PieceRare.Designer.cs">
-      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Interfaces\IPieceAgent.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CollectionModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PieceModel.cs" />
+    <Compile Include="Models\SetModel.cs" />
+    <Compile Include="Plumbing\MapperConfiguration.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -302,10 +291,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Pieces\Create.cshtml" />
-    <Content Include="Views\Pieces\Delete.cshtml" />
-    <Content Include="Views\Pieces\Details.cshtml" />
-    <Content Include="Views\Pieces\Edit.cshtml" />
     <Content Include="Views\Pieces\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -320,21 +305,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409012031556_InitialCreate.resx">
-      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409012051122_initial.resx">
-      <DependentUpon>201409012051122_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409012146005_Set.resx">
-      <DependentUpon>201409012146005_Set.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409012150016_Collection.resx">
-      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409012206183_PieceRare.resx">
-      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\CurioExchangeService\CurioExchangeService.csproj">
+      <Project>{ef80a860-6242-4323-b543-ca4804383549}</Project>
+      <Name>CurioExchangeService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -374,6 +348,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.0.10.0-build17704\tools\net40\Microsoft.ApplicationInsights.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." />
     <Error Condition="Exists('..\packages\Microsoft.ApplicationInsights.0.10.0-build17704\tools\net40\Microsoft.ApplicationInsights.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." />
   </Target>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

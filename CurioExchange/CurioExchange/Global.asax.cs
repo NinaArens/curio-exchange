@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor.Installer;
+using CurioExchange.Plumbing;
 
 namespace CurioExchange
 {
@@ -18,6 +19,9 @@ namespace CurioExchange
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            BootstrapContainer();
+            MapperConfiguration.Map();
         }
 
         private static IWindsorContainer container;

@@ -1,10 +1,10 @@
-﻿@model IEnumerable<CurioExchange.Entities.Piece>
+﻿@model List<CurioExchange.Models.PieceModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Pieces</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
@@ -12,18 +12,18 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rare)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Rare)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Set)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Set)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Set.Collection)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Set.Collection)
         </th>
-        <th></th>
+        @*<th></th>*@
     </tr>
 
 @foreach (var item in Model) {
