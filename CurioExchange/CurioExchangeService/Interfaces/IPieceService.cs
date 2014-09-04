@@ -1,5 +1,4 @@
 ﻿using CurioExchangeService.Entities;
-using CurioExchangeService.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +24,10 @@ namespace CurioExchangeService
         [OperationContract]
         Task DeleteUserPiece(int id);
 
-        // todo: Exclude self when fetching possible trades
+        [OperationContract]
+        Task<ICollection<UserPiece>> RetrieveTradesWanted(string userId);
+
+        [OperationContract]
+        Task<ICollection<UserPiece>> RetrieveTradesOwned(string userId);
     }
 }

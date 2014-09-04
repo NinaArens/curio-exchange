@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -29,6 +30,7 @@ namespace CurioExchange.Models
 
         public int AccessFailedCount { get; set; }
 
+        [Display(Name = "Character name")]
         public string UserName { get; set; }
     }
 }

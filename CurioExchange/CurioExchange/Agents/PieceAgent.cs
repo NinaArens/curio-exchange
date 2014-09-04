@@ -39,5 +39,17 @@ namespace CurioExchange.Agents
         {
             await _pieceService.DeleteUserPiece(id);
         }
+
+        public async Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId)
+        {
+            var result = await _pieceService.RetrieveTradesWanted(userId);
+            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
+        }
+
+        public async Task<ICollection<UserPieceModel>> RetrieveTradesOwned(string userId)
+        {
+            var result = await _pieceService.RetrieveTradesOwned(userId);
+            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
+        }
     }
 }

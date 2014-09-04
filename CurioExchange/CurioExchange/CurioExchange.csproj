@@ -208,6 +208,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PiecesController.cs" />
+    <Compile Include="Controllers\TradesController.cs" />
     <Compile Include="Controllers\UserPiecesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -301,6 +302,7 @@
     <Content Include="Views\UserPieces\Index.cshtml" />
     <Content Include="Views\UserPieces\CreateWanted.cshtml" />
     <Content Include="Views\UserPieces\CreateOwned.cshtml" />
+    <Content Include="Views\Trades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

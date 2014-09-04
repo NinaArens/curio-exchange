@@ -1,0 +1,71 @@
+﻿@model CurioExchange.ViewModels.UserPieceViewModel
+
+@{
+    ViewBag.Title = "Possible trades";
+}
+
+<h2>Possible trades</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<h3>Players having pieces you want</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WantedPieces.FirstOrDefault().Piece)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WantedPieces.FirstOrDefault().User.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.WantedPieces) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piece.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+    </tr>
+}
+
+</table>
+
+<h3>Players wanting pieces you own</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnedPieces.FirstOrDefault().Piece)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnedPieces.FirstOrDefault().User.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.OwnedPieces)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+    }
+
+</table>

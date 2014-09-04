@@ -31,16 +31,9 @@ namespace CurioExchangeService
 
         public async Task<int> CreaseUserPiece(UserPiece userPiece)
         {
-            try
-            {
-                _context.UserPieces.Add(userPiece);
-                await _context.SaveChangesAsync();
-                return userPiece.Id;
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
+            _context.UserPieces.Add(userPiece);
+            await _context.SaveChangesAsync();
+            return userPiece.Id;
         }
 
         public async Task DeleteUserPiece(int id)
@@ -48,6 +41,18 @@ namespace CurioExchangeService
             var userPiece = await _context.UserPieces.FindAsync(id);
             _context.UserPieces.Remove(userPiece);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<ICollection<UserPiece>> RetrieveTradesWanted(string userId)
+        {
+            var wantedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned == false).Select(t => t.Piece_Id);
+            return await _context.UserPieces.Where(t => t.Owned == true && wantedIds.Contains(t.Piece_Id) && t.User_Id != userId).ToListAsync();
+        }
+
+        public async Task<ICollection<UserPiece>> RetrieveTradesOwned(string userId)
+        {
+            var ownedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned).Select(t => t.Piece_Id);
+            return await _context.UserPieces.Where(t => t.Owned == false && ownedIds.Contains(t.Piece_Id) && t.User_Id != userId).ToListAsync();
         }
     }
 }
