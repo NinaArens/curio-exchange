@@ -10,5 +10,11 @@ namespace CurioExchange.Interfaces
     public interface IPieceAgent
     {
         Task<ICollection<PieceModel>> RetrievePieces();
+
+        Task<ICollection<UserPieceModel>> RetrieveUserPieces(string userId);
+
+        Task<int> CreaseUserPiece(UserPieceModel userPiece);
+
+        Task DeleteUserPiece(UserPieceModel userPiece);
     }
 }

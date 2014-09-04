@@ -6,12 +6,12 @@ using System.Web;
 
 namespace CurioExchangeService.Entities
 {
-    public class Piece : Entity
+    public class UserPiece : Entity
     {
-        public string Name { get; set; }
+        public virtual Piece Piece { get; set; }
 
-        public virtual Set Set { get; set; }
+        public virtual AspNetUser User { get; set; }
 
-        public bool Rare { get; set; }
+        public bool Owned { get; set; }
     }
 }

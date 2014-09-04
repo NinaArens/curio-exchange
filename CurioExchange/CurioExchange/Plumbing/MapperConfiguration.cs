@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
-using CurioExchange.Entities;
+using CurioExchangeService.Entities;
 using CurioExchange.Models;
+using CurioExchangeService.Entities;
 
 namespace CurioExchange.Plumbing
 {
@@ -20,6 +21,12 @@ namespace CurioExchange.Plumbing
 
             Mapper.CreateMap<Collection, CollectionModel>();
             Mapper.CreateMap<CollectionModel, Collection>();
+
+            Mapper.CreateMap<UserPiece, UserPieceModel>();
+            Mapper.CreateMap<UserPieceModel, UserPiece>();
+
+            Mapper.CreateMap<AspNetUser, AspNetUserModel>();
+            Mapper.CreateMap<AspNetUserModel, AspNetUser>();
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using CurioExchange.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Threading.Tasks;
 using CurioExchange.Models;
 using CurioExchangeService;
 using AutoMapper;
-using CurioExchange.Entities;
+using CurioExchangeService.Entities;
 
 namespace CurioExchange.Agents
 {
@@ -24,6 +21,24 @@ namespace CurioExchange.Agents
         {
             var result = await _pieceService.RetrievePieces();
             return Mapper.Map<ICollection<Piece>, ICollection<PieceModel>>(result);
+        }
+
+        public async Task<ICollection<UserPieceModel>> RetrieveUserPieces(string userId)
+        {
+            var result = await _pieceService.RetrieveUserPieces(userId);
+            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
+        }
+
+        public async Task<int> CreaseUserPiece(UserPieceModel userPiece)
+        {
+            var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
+            return await _pieceService.CreaseUserPiece(mapped);
+        }
+
+        public async Task DeleteUserPiece(UserPieceModel userPiece)
+        {
+            var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
+            await _pieceService.DeleteUserPiece(mapped);
         }
     }
 }

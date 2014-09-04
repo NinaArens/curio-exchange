@@ -1,48 +1,47 @@
 ﻿using CurioExchange.Interfaces;
-using CurioExchange.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using CurioExchange.ViewModels;
 
 namespace CurioExchange.Controllers
 {
-    public class PiecesController : Controller
+    public class UserPiecesController : Controller
     {
         private IPieceAgent _pieceAgent;
 
-        public PiecesController(IPieceAgent pieceAgent)
+        public UserPiecesController(IPieceAgent pieceAgent)
         {
             _pieceAgent = pieceAgent;
         }
 
-        // GET: Pieces
+        // GET: UserPiece
         public async Task<ActionResult> Index()
         {
-            var model = new List<PieceModel>();
-
-            var pieces = await _pieceAgent.RetrievePieces();
-
-            model.AddRange(pieces);
-
+            var model = new UserPieceViewModel();
+            var userPieces = await _pieceAgent.RetrieveUserPieces(User.Identity.GetUserId());
+            model.WantedPieces.AddRange(userPieces.Where(t => t.Owned == false));
+            model.OwnedPieces.AddRange(userPieces.Where(t => t.Owned));
             return View(model);
         }
 
-        // GET: Pieces/Details/5
+        // GET: UserPiece/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Pieces/Create
+        // GET: UserPiece/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pieces/Create
+        // POST: UserPiece/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -58,13 +57,13 @@ namespace CurioExchange.Controllers
             }
         }
 
-        // GET: Pieces/Edit/5
+        // GET: UserPiece/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Pieces/Edit/5
+        // POST: UserPiece/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -80,13 +79,13 @@ namespace CurioExchange.Controllers
             }
         }
 
-        // GET: Pieces/Delete/5
+        // GET: UserPiece/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Pieces/Delete/5
+        // POST: UserPiece/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

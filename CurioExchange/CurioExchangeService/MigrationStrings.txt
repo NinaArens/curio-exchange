@@ -1,0 +1,3 @@
+﻿add-migration -ProjectName CurioExchangeService -ConnectionStringName CurioExchangeContext
+
+update-database -ProjectName CurioExchangeService -ConnectionStringName CurioExchangeContext

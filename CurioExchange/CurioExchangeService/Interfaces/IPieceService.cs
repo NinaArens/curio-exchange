@@ -1,4 +1,5 @@
-﻿using CurioExchange.Entities;
+﻿using CurioExchangeService.Entities;
+using CurioExchangeService.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,21 @@ using System.Threading.Tasks;
 
 namespace CurioExchangeService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IPieceService" in both code and config file together.
     [ServiceContract]
     public interface IPieceService
     {
         [OperationContract]
         Task<ICollection<Piece>> RetrievePieces();
+
+        [OperationContract]
+        Task<ICollection<UserPiece>> RetrieveUserPieces(string userId);
+
+        [OperationContract]
+        Task<int> CreaseUserPiece(UserPiece userPiece);
+
+        [OperationContract]
+        Task DeleteUserPiece(UserPiece userPiece);
+
+        // todo: Exclude self when fetching possible trades
     }
 }

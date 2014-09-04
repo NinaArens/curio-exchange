@@ -95,6 +95,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MigrationStrings.txt" />
     <Content Include="Services\PieceService.svc" />
     <Content Include="scripts\ai.js" />
     <Content Include="scripts\ai.min.js" />
@@ -102,35 +103,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurioExchangeContext.cs" />
+    <Compile Include="Entities\AspNetUser.cs" />
     <Compile Include="Entities\Collection.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\UserPiece.cs" />
     <Compile Include="Entities\Piece.cs" />
     <Compile Include="Entities\Set.cs" />
     <Compile Include="Interfaces\IPieceService.cs" />
+    <Compile Include="Migrations\201409032322214_Initial.cs" />
+    <Compile Include="Migrations\201409032322214_Initial.Designer.cs">
+      <DependentUpon>201409032322214_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Migrations\201409012031556_InitialCreate.cs" />
-    <Compile Include="Properties\Migrations\201409012031556_InitialCreate.Designer.cs">
-      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Migrations\201409012051122_initial.cs" />
-    <Compile Include="Properties\Migrations\201409012051122_initial.Designer.cs">
-      <DependentUpon>201409012051122_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Migrations\201409012146005_Set.cs" />
-    <Compile Include="Properties\Migrations\201409012146005_Set.Designer.cs">
-      <DependentUpon>201409012146005_Set.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Migrations\201409012150016_Collection.cs" />
-    <Compile Include="Properties\Migrations\201409012150016_Collection.Designer.cs">
-      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Migrations\201409012206183_PieceRare.cs" />
-    <Compile Include="Properties\Migrations\201409012206183_PieceRare.Designer.cs">
-      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -147,20 +134,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Migrations\201409012031556_InitialCreate.resx">
-      <DependentUpon>201409012031556_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Migrations\201409012051122_initial.resx">
-      <DependentUpon>201409012051122_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Migrations\201409012146005_Set.resx">
-      <DependentUpon>201409012146005_Set.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Migrations\201409012150016_Collection.resx">
-      <DependentUpon>201409012150016_Collection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Migrations\201409012206183_PieceRare.resx">
-      <DependentUpon>201409012206183_PieceRare.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409032322214_Initial.resx">
+      <DependentUpon>201409032322214_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
