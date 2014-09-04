@@ -21,12 +21,12 @@ namespace CurioExchangeService
 
         public async Task<ICollection<Piece>> RetrievePieces()
         {
-            return await _context.Pieces.Include(t => t.Set.Collection).ToListAsync();
+            return await _context.Pieces.Include(t => t.Set.Collection).OrderBy(t => t.Set.Collection.Name).ThenBy(t => t.Set.Name).ToListAsync();
         }
 
         public async Task<ICollection<UserPiece>> RetrieveUserPieces(string userId)
         {
-            return await _context.UserPieces.Where(t => t.User.Id == userId).Include(t => t.Piece.Set.Collection).ToListAsync();
+            return await _context.UserPieces.Where(t => t.User.Id == userId).Include(t => t.Piece.Set.Collection).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
         }
 
         public async Task<int> CreaseUserPiece(UserPiece userPiece)
@@ -46,13 +46,13 @@ namespace CurioExchangeService
         public async Task<ICollection<UserPiece>> RetrieveTradesWanted(string userId)
         {
             var wantedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned == false).Select(t => t.Piece_Id);
-            return await _context.UserPieces.Where(t => t.Owned == true && wantedIds.Contains(t.Piece_Id) && t.User_Id != userId).ToListAsync();
+            return await _context.UserPieces.Where(t => t.Owned == true && wantedIds.Contains(t.Piece_Id) && t.User_Id != userId).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
         }
 
         public async Task<ICollection<UserPiece>> RetrieveTradesOwned(string userId)
         {
             var ownedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned).Select(t => t.Piece_Id);
-            return await _context.UserPieces.Where(t => t.Owned == false && ownedIds.Contains(t.Piece_Id) && t.User_Id != userId).ToListAsync();
+            return await _context.UserPieces.Where(t => t.Owned == false && ownedIds.Contains(t.Piece_Id) && t.User_Id != userId).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
         }
     }
 }

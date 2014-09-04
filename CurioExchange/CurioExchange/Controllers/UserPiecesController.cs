@@ -44,6 +44,7 @@ namespace CurioExchange.Controllers
                 Pieces = await _pieceAgent.RetrievePieces(),
                 User_Id = User.Identity.GetUserId()
             };
+            model.Pieces = model.Pieces.OrderBy(t => t.Name).ToList();
             return View(model);
         }
 
@@ -55,6 +56,7 @@ namespace CurioExchange.Controllers
                 Pieces = await _pieceAgent.RetrievePieces(),
                 User_Id = User.Identity.GetUserId()
             };
+            model.Pieces = model.Pieces.OrderBy(t => t.Name).ToList();
             return View(model);
         }
 
