@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using CurioExchange.ViewModels;
+using CurioExchange.Models;
 
 namespace CurioExchange.Controllers
 {
@@ -36,24 +37,53 @@ namespace CurioExchange.Controllers
         }
 
         // GET: UserPiece/Create
-        public ActionResult Create()
+        public async Task<ActionResult> CreateWanted()
         {
-            return View();
+            var model = new UserPieceModel
+            {
+                Pieces = await _pieceAgent.RetrievePieces(),
+                User_Id = User.Identity.GetUserId()
+            };
+            return View(model);
+        }
+
+        public async Task<ActionResult> CreateOwned()
+        {
+            var model = new UserPieceModel
+            {
+                Owned = true,
+                Pieces = await _pieceAgent.RetrievePieces(),
+                User_Id = User.Identity.GetUserId()
+            };
+            return View(model);
         }
 
         // POST: UserPiece/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public async Task<ActionResult> CreateWanted(UserPieceModel model)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                await _pieceAgent.CreaseUserPiece(model);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateOwned(UserPieceModel model)
+        {
+            try
+            {
+                await _pieceAgent.CreaseUserPiece(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View(model);
             }
         }
 
@@ -80,25 +110,10 @@ namespace CurioExchange.Controllers
         }
 
         // GET: UserPiece/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
-        }
-
-        // POST: UserPiece/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            await _pieceAgent.DeleteUserPiece(id);
+            return RedirectToAction("Index");
         }
     }
 }

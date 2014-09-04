@@ -23,7 +23,7 @@ namespace CurioExchangeService
         Task<int> CreaseUserPiece(UserPiece userPiece);
 
         [OperationContract]
-        Task DeleteUserPiece(UserPiece userPiece);
+        Task DeleteUserPiece(int id);
 
         // todo: Exclude self when fetching possible trades
     }

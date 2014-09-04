@@ -23,7 +23,7 @@ namespace CurioExchange.Models
 
         public bool TwoFactorEnabled { get; set; }
 
-        public DateTime LockoutEndDateUtc { get; set; }
+        public Nullable<DateTime> LockoutEndDateUtc { get; set; }
 
         public bool LockoutEnabled { get; set; }
 

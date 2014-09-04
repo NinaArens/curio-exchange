@@ -26,18 +26,26 @@ namespace CurioExchangeService
 
         public async Task<ICollection<UserPiece>> RetrieveUserPieces(string userId)
         {
-            return await _context.UserPieces.Where(t => t.User.Id == userId).Include(t => t.Piece).ToListAsync();
+            return await _context.UserPieces.Where(t => t.User.Id == userId).Include(t => t.Piece.Set.Collection).ToListAsync();
         }
 
         public async Task<int> CreaseUserPiece(UserPiece userPiece)
         {
-            _context.UserPieces.Attach(userPiece);
-            await _context.SaveChangesAsync();
-            return userPiece.Id;
+            try
+            {
+                _context.UserPieces.Add(userPiece);
+                await _context.SaveChangesAsync();
+                return userPiece.Id;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
-        public async Task DeleteUserPiece(UserPiece userPiece)
+        public async Task DeleteUserPiece(int id)
         {
+            var userPiece = await _context.UserPieces.FindAsync(id);
             _context.UserPieces.Remove(userPiece);
             await _context.SaveChangesAsync();
         }

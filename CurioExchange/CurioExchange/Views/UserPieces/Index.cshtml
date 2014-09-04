@@ -1,22 +1,38 @@
 ﻿@model CurioExchange.ViewModels.UserPieceViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Wanted & owned pieces";
 }
 
 <h2>Wanted pieces</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add wanted piece", "CreateWanted")
 </p>
 <table class="table">
     <tr>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model.WantedPieces)
 {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piece.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piece.Rare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+        </td>
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
@@ -30,16 +46,32 @@
 <h2>Owned pieces</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add owned piece", "CreateOwned")
 </p>
 <table class="table">
     <tr>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model.OwnedPieces)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Rare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+            </td>
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@

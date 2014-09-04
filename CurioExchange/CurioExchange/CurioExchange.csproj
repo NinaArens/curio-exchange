@@ -299,6 +299,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Pieces\Index.cshtml" />
     <Content Include="Views\UserPieces\Index.cshtml" />
+    <Content Include="Views\UserPieces\CreateWanted.cshtml" />
+    <Content Include="Views\UserPieces\CreateOwned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

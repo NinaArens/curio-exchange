@@ -35,10 +35,9 @@ namespace CurioExchange.Agents
             return await _pieceService.CreaseUserPiece(mapped);
         }
 
-        public async Task DeleteUserPiece(UserPieceModel userPiece)
+        public async Task DeleteUserPiece(int id)
         {
-            var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
-            await _pieceService.DeleteUserPiece(mapped);
+            await _pieceService.DeleteUserPiece(id);
         }
     }
 }

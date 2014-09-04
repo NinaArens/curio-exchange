@@ -114,6 +114,14 @@
     <Compile Include="Migrations\201409032322214_Initial.Designer.cs">
       <DependentUpon>201409032322214_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409041835247_UserPieceMigration.cs" />
+    <Compile Include="Migrations\201409041835247_UserPieceMigration.Designer.cs">
+      <DependentUpon>201409041835247_UserPieceMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409041847193_UserMigration.cs" />
+    <Compile Include="Migrations\201409041847193_UserMigration.Designer.cs">
+      <DependentUpon>201409041847193_UserMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
@@ -136,6 +144,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409032322214_Initial.resx">
       <DependentUpon>201409032322214_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409041835247_UserPieceMigration.resx">
+      <DependentUpon>201409041835247_UserPieceMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409041847193_UserMigration.resx">
+      <DependentUpon>201409041847193_UserMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,7 +24,7 @@ namespace CurioExchangeService.Entities
 
         public bool TwoFactorEnabled { get; set; }
 
-        public DateTime LockoutEndDateUtc { get; set; }
+        public Nullable<DateTime> LockoutEndDateUtc { get; set; }
 
         public bool LockoutEnabled { get; set; }
 

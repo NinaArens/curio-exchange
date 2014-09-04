@@ -35,8 +35,10 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("Pieces overview", "Index", "Pieces")</li>
-                    @*todo: Not accessible when not logged in*@
-                    <li>@Html.ActionLink("Wanted & owned pieces", "Index", "UserPieces")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Wanted & owned pieces", "Index", "UserPieces")</li>
+                    }
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
