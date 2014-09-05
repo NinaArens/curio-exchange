@@ -383,7 +383,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "ceramic deathwatch beetle mid right leg", Rare = false, Set = deathwatchBeetle });
                 context.Pieces.Add(new Piece { Name = "ceramic deathwatch beetle front right leg", Rare = false, Set = deathwatchBeetle });
                 context.Pieces.Add(new Piece { Name = "ceramic deathwatch beetle middle carapace", Rare = false, Set = deathwatchBeetle });
-                context.Pieces.Add(new Piece { Name = "a ceramic deathwatch beetle head", Rare = true, Set = deathwatchBeetle });
+                context.Pieces.Add(new Piece { Name = "ceramic deathwatch beetle head", Rare = true, Set = deathwatchBeetle });
 
                 context.Pieces.Add(new Piece { Name = "glass angel upper body", Rare = false, Set = glassAngel });
                 context.Pieces.Add(new Piece { Name = "glass angel middle body", Rare = false, Set = glassAngel });
@@ -514,7 +514,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "black widow sixth leg", Rare = false, Set = blackWidow });
                 context.Pieces.Add(new Piece { Name = "black widow seventh leg", Rare = false, Set = blackWidow });
                 context.Pieces.Add(new Piece { Name = "black widow eighth leg", Rare = false, Set = blackWidow });
-                context.Pieces.Add(new Piece { Name = "a black widow body with red hourglass", Rare = true, Set = blackWidow });
+                context.Pieces.Add(new Piece { Name = "black widow body with red hourglass", Rare = true, Set = blackWidow });
 
                 context.Pieces.Add(new Piece { Name = "bronze tailor head", Rare = false, Set = bronzeTailor });
                 context.Pieces.Add(new Piece { Name = "bronze tailor left arm", Rare = false, Set = bronzeTailor });
@@ -525,7 +525,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "bronze tailor lower body", Rare = false, Set = bronzeTailor });
                 context.Pieces.Add(new Piece { Name = "bronze tailor shears", Rare = false, Set = bronzeTailor });
                 context.Pieces.Add(new Piece { Name = "bronze tailor needle", Rare = false, Set = bronzeTailor });
-                context.Pieces.Add(new Piece { Name = "a bronze tailor spectacles", Rare = true, Set = bronzeTailor });
+                context.Pieces.Add(new Piece { Name = "bronze tailor spectacles", Rare = true, Set = bronzeTailor });
 
                 context.Pieces.Add(new Piece { Name = "ceramic parrot head", Rare = false, Set = ceramicParrot });
                 context.Pieces.Add(new Piece { Name = "ceramic parrot left wing", Rare = false, Set = ceramicParrot });
