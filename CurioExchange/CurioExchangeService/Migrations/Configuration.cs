@@ -1593,16 +1593,16 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "stuffed donkey ears", Rare = false, Set = stuffedDonkey });
                 context.Pieces.Add(new Piece { Name = "stuffed donkey head", Rare = true, Set = stuffedDonkey });
 
-                context.Pieces.Add(new Piece { Name = "wooden carriage steamer trunk", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage duffel bag", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage backpack", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage blue suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage pink suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage maroon suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage purple suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage orange suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage black suitcase", Rare = false, Set = woodenCarriage });
-                context.Pieces.Add(new Piece { Name = "wooden carriage hatbox", Rare = true, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage front left wheel", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage front right wheel", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage back left wheel", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage back right wheel", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage left door", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage right door", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage top carriage", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage middle carriage", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage bottom carriage", Rare = false, Set = woodenCarriage });
+                context.Pieces.Add(new Piece { Name = "wooden carriage driver's seat", Rare = true, Set = woodenCarriage });
 
                 context.SaveChanges();
             }
