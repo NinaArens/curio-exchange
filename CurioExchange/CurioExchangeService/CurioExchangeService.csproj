@@ -99,6 +99,7 @@
     <Content Include="Services\PieceService.svc" />
     <Content Include="scripts\ai.js" />
     <Content Include="scripts\ai.min.js" />
+    <Content Include="Sql\Data.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

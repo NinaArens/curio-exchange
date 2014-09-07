@@ -482,7 +482,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "stuffed panda middle body", Rare = false, Set = stuffedPanda });
                 context.Pieces.Add(new Piece { Name = "stuffed panda lower body", Rare = false, Set = stuffedPanda });
                 context.Pieces.Add(new Piece { Name = "stuffed panda tail", Rare = false, Set = stuffedPanda });
-                context.Pieces.Add(new Piece { Name = "tuffed panda head", Rare = true, Set = stuffedPanda });
+                context.Pieces.Add(new Piece { Name = "stuffed panda head", Rare = true, Set = stuffedPanda });
 
                 context.Pieces.Add(new Piece { Name = "teddy bear body", Rare = false, Set = teddyBear });
                 context.Pieces.Add(new Piece { Name = "teddy bear right arm", Rare = false, Set = teddyBear });
@@ -604,16 +604,16 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "icy snowflake ninth crystal", Rare = false, Set = icySnowflake });
                 context.Pieces.Add(new Piece { Name = "icy snowflake core", Rare = true, Set = icySnowflake });
 
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly upper right wing", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly lower right wing", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly upper left wing", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly lower left wing", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly upper body", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly lower body", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly front legs", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly middle legs", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly back legs", Rare = false, Set = jeweledDragonfly });
-                context.Pieces.Add(new Piece { Name = "jeweled dragonfly head", Rare = true, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly upper right wing", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly lower right wing", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly upper left wing", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly lower left wing", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly upper body", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly lower body", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly front legs", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly middle legs", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly back legs", Rare = false, Set = jeweledDragonfly });
+                context.Pieces.Add(new Piece { Name = "jewelled dragonfly head", Rare = true, Set = jeweledDragonfly });
 
                 context.Pieces.Add(new Piece { Name = "jeweled eye upper iris of pink", Rare = false, Set = jewelledEye });
                 context.Pieces.Add(new Piece { Name = "jeweled eye lower iris of pink", Rare = false, Set = jewelledEye });
@@ -624,7 +624,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "jeweled eye first ruby vein cluster", Rare = false, Set = jewelledEye });
                 context.Pieces.Add(new Piece { Name = "jeweled eye second ruby vein cluster", Rare = false, Set = jewelledEye });
                 context.Pieces.Add(new Piece { Name = "jeweled eye third ruby vein cluster", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "eweled eye garnet pupil", Rare = true, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jeweled eye garnet pupil", Rare = true, Set = jewelledEye });
 
                 context.Pieces.Add(new Piece { Name = "rapacious rattlesnake head", Rare = false, Set = rapaciousRattlesnake });
                 context.Pieces.Add(new Piece { Name = "rapacious rattlesnake upper top body", Rare = false, Set = rapaciousRattlesnake });
@@ -1198,16 +1198,16 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "glass peacock head", Rare = false, Set = glassPeacock });
                 context.Pieces.Add(new Piece { Name = "glass peacock tail", Rare = true, Set = glassPeacock });
 
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball upper lid", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball lower lid", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball upper front", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball middle front", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball lower front", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball upper back", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball lower back", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball middle back", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball core", Rare = false, Set = glaringEyeball });
-                context.Pieces.Add(new Piece { Name = "bloodshot, glaring eyeball iris", Rare = true, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball upper lid", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball lower lid", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball upper front", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball middle front", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball lower front", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball upper back", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball lower back", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball middle back", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball core", Rare = false, Set = glaringEyeball });
+                context.Pieces.Add(new Piece { Name = "glaring eyeball iris", Rare = true, Set = glaringEyeball });
 
                 context.Pieces.Add(new Piece { Name = "golden feather upper top plume", Rare = false, Set = goldenFeather });
                 context.Pieces.Add(new Piece { Name = "golden feather lower top plume", Rare = false, Set = goldenFeather });
