@@ -615,16 +615,16 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "jewelled dragonfly back legs", Rare = false, Set = jeweledDragonfly });
                 context.Pieces.Add(new Piece { Name = "jewelled dragonfly head", Rare = true, Set = jeweledDragonfly });
 
-                context.Pieces.Add(new Piece { Name = "jeweled eye upper iris of pink", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye lower iris of pink", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye outer diamond sclera", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye inner diamond sclera", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye upper eyelid of polished stone", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye lower eyelid of polished stone", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye first ruby vein cluster", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye second ruby vein cluster", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye third ruby vein cluster", Rare = false, Set = jewelledEye });
-                context.Pieces.Add(new Piece { Name = "jeweled eye garnet pupil", Rare = true, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye upper iris of pink", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye lower iris of pink", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye outer diamond sclera", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye inner diamond sclera", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye upper eyelid of polished stone", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye lower eyelid of polished stone", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye first ruby vein cluster", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye second ruby vein cluster", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye third ruby vein cluster", Rare = false, Set = jewelledEye });
+                context.Pieces.Add(new Piece { Name = "jewelled eye garnet pupil", Rare = true, Set = jewelledEye });
 
                 context.Pieces.Add(new Piece { Name = "rapacious rattlesnake head", Rare = false, Set = rapaciousRattlesnake });
                 context.Pieces.Add(new Piece { Name = "rapacious rattlesnake upper top body", Rare = false, Set = rapaciousRattlesnake });
@@ -1306,6 +1306,7 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "straight razor upper bottom handle", Rare = false, Set = straightRazor });
                 context.Pieces.Add(new Piece { Name = "straight razor lower bottom handle", Rare = false, Set = straightRazor });
                 context.Pieces.Add(new Piece { Name = "straight razor upper blade", Rare = true, Set = straightRazor });
+                context.Pieces.Add(new Piece { Name = "straight razor rust", Rare = true, Set = straightRazor });
 
                 context.Pieces.Add(new Piece { Name = "ominous cog first tooth", Rare = false, Set = toothedCog });
                 context.Pieces.Add(new Piece { Name = "ominous cog second tooth", Rare = false, Set = toothedCog });
@@ -1472,16 +1473,16 @@ namespace CurioExchangeService.Migrations
                 context.Pieces.Add(new Piece { Name = "iron spy dagger", Rare = false, Set = ironSpy });
                 context.Pieces.Add(new Piece { Name = "iron spy head", Rare = true, Set = ironSpy });
 
-                context.Pieces.Add(new Piece { Name = "jeweled lily first petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily second petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily third petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily fourth petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily fifth petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily sixth petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily seventh petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily eighth petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily ninth petal", Rare = false, Set = jeweledLily });
-                context.Pieces.Add(new Piece { Name = "jeweled lily stem", Rare = true, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily first petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily second petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily third petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily fourth petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily fifth petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily sixth petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily seventh petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily eighth petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily ninth petal", Rare = false, Set = jeweledLily });
+                context.Pieces.Add(new Piece { Name = "jewelled lily stem", Rare = true, Set = jeweledLily });
 
                 context.Pieces.Add(new Piece { Name = "knucklebone first shard", Rare = false, Set = knucklebone });
                 context.Pieces.Add(new Piece { Name = "knucklebone second shard", Rare = false, Set = knucklebone });
