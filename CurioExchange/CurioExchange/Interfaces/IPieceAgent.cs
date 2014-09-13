@@ -20,5 +20,7 @@ namespace CurioExchange.Interfaces
         Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId);
 
         Task<ICollection<UserPieceModel>> RetrieveTradesOwned(string userId);
+
+        Task<int> GetPieceIdForName(string name);
     }
 }

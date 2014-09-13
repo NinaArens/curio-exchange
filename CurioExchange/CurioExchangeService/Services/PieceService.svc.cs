@@ -54,5 +54,13 @@ namespace CurioExchangeService
             var ownedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned).Select(t => t.Piece_Id);
             return await _context.UserPieces.Where(t => t.Owned == false && ownedIds.Contains(t.Piece_Id) && t.User_Id != userId).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
         }
+
+        public async Task<int> GetPieceIdForName(string name)
+        {
+            var result = await _context.Pieces.FirstOrDefaultAsync(t => t.Name.ToLower().Contains(name.ToLower()));
+            if (result == null)
+                return 0;
+            return result.Id;
+        }
     }
 }

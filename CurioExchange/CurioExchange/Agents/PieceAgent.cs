@@ -51,5 +51,10 @@ namespace CurioExchange.Agents
             var result = await _pieceService.RetrieveTradesOwned(userId);
             return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
         }
+
+        public async Task<int> GetPieceIdForName(string name)
+        {
+            return await _pieceService.GetPieceIdForName(name);
+        }
     }
 }

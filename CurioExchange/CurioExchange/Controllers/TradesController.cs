@@ -11,6 +11,7 @@ using CurioExchange.ViewModels;
 
 namespace CurioExchange.Controllers
 {
+    [Authorize] 
     public class TradesController : Controller
     {
         private IPieceAgent _pieceAgent;

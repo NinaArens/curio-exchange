@@ -8,9 +8,11 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using CurioExchange.ViewModels;
 using CurioExchange.Models;
+using System.Text.RegularExpressions;
 
 namespace CurioExchange.Controllers
 {
+    [Authorize] 
     public class UserPiecesController : Controller
     {
         private IPieceAgent _pieceAgent;
@@ -116,6 +118,49 @@ namespace CurioExchange.Controllers
         {
             await _pieceAgent.DeleteUserPiece(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ImportOwned()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ImportOwned(string import)
+        {
+            try
+            {
+                var results = Regex.Matches(import, "\\d+ +Piece +(?:\\w+ ?)+ +\\w+ +((?:\\w+ ?)+)");
+
+                if (results.Count > 0)
+                {
+                    foreach (Match item in results)
+                    {
+                        var result = item.Groups[1];
+                        var pieceId = await _pieceAgent.GetPieceIdForName(result.Value);
+
+                        if (pieceId > 0)
+                        {
+                            await _pieceAgent.CreaseUserPiece(new UserPieceModel
+                            {
+                                Owned = true,
+                                Piece_Id = pieceId,
+                                User_Id = User.Identity.GetUserId()
+                            });
+                        }
+                        else
+                        {
+                            TempData["ErrorMessage"]+="The piece " + result.Value + " does not yet exist in the database. ";
+                        }
+                    }
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
