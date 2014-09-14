@@ -260,3 +260,24 @@ GO
 
 INSERT INTO dbo.Pieces VALUES ('straight razor straight razor rust', 0, 73)
 GO
+
+INSERT INTO dbo.Sets VALUES ('Mouldy Cheese', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Cheese Rind', 1, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Green Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Blue Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Purple Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Red Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Yellow Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Grey Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Black Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese White Mould', 0, 141)
+INSERT INTO dbo.Pieces VALUES ('Mouldy Cheese Orange Mould', 0, 141)
+GO
+
+INSERT INTO dbo.Sets VALUES ('Jester Mask', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Jester Mask Jester Right Eye', 0, 142)
+GO

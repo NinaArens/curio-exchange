@@ -130,7 +130,7 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                var results = Regex.Matches(import, "\\d+ +Piece +(?:\\w+ ?)+ +\\w+ +((?:\\w+ ?)+)");
+                var results = Regex.Matches(import, "\\d+ +(?:Piece|Rare) +(?:\\w+ ?)+ +\\w+ +((?:\\w+ ?)+)");
 
                 if (results.Count > 0)
                 {
