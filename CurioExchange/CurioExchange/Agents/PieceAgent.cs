@@ -42,7 +42,11 @@ namespace CurioExchange.Agents
             {
                 userPiece.Piece_Id = item;
                 var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
-                result.Add(await _pieceService.CreaseUserPiece(mapped));
+
+                for (int i = 0; i < userPiece.Amount; i++)
+                {
+                    result.Add(await _pieceService.CreaseUserPiece(mapped));
+                }
             }
             return result;
         }
