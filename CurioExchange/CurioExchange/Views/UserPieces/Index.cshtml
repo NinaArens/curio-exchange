@@ -32,7 +32,14 @@
             @Html.DisplayFor(modelItem => item.Piece.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Piece.Rare)
+            @if (item.Piece.Rare)
+            {
+                <span style="color: green; font-weight: bold;">Yes</span>
+            }
+            else
+            {
+                <span>No</span>
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Piece.Set.Name)
@@ -82,7 +89,14 @@
                 @Html.DisplayFor(modelItem => item.Piece.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Piece.Rare)
+                @if (item.Piece.Rare)
+                {
+                    <span style="color: green; font-weight: bold;">Yes</span>
+                }
+                else
+                {
+                    <span>No</span>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Set.Name)
