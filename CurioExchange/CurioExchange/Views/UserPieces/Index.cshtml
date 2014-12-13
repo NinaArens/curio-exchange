@@ -50,8 +50,12 @@
 <p>
     @Html.ActionLink("Add owned piece", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")
 </p>
+@using (Html.BeginForm("DeleteOwned", "UserPieces"))
+{
+    <p><input type="submit" value="Delete selected pieces" class="btn btn-default" /></p>
 <table class="table">
     <tr>
+        <th><input type="checkbox" id="selectAll" /></th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
@@ -62,6 +66,9 @@
     @foreach (var item in Model.OwnedPieces)
     {
         <tr>
+            <td>
+               <input type="checkbox" name="toDelete" value="@item.Id" class="todelete">
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Name)
             </td>
@@ -81,5 +88,23 @@
             </td>
         </tr>
     }
-
 </table>
+    <input type="submit" value="Delete selected pieces" class="btn btn-default" />
+}
+
+<script>
+$(document).ready(function() {
+    $('#selectAll').click(function (event) {  //on click
+        if(this.checked) { // check select status
+            $('.todelete').each(function () { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"
+            });
+        }else{
+            $('.todelete').each(function () { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
+            });
+        }
+    });
+
+});
+</script>

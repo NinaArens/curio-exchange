@@ -23,5 +23,7 @@ namespace CurioExchange.Models
         public bool Owned { get; set; }
 
         public ICollection<PieceModel> Pieces { get; set; }
+
+        public bool Delete { get; set; }
     }
 }

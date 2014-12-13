@@ -162,5 +162,18 @@ namespace CurioExchange.Controllers
                 return View();
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult> DeleteOwned(int[] toDelete)
+        {
+            if (toDelete != null && toDelete.Count() > 0)
+            {
+                foreach (var item in toDelete)
+                {
+                    await _pieceAgent.DeleteUserPiece(item);
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
