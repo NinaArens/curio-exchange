@@ -15,6 +15,8 @@ namespace CurioExchange.Interfaces
 
         Task<int> CreaseUserPiece(UserPieceModel userPiece);
 
+        Task<IEnumerable<int>> CreaseUserPieces(UserPieceModel userPiece);
+
         Task DeleteUserPiece(int id);
 
         Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId);

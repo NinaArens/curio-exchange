@@ -7,10 +7,14 @@
 <h2>Wanted pieces</h2>
 
 <p>
-    @Html.ActionLink("Add wanted piece", "CreateWanted")
+    @Html.ActionLink("Add wanted piece(s)", "CreateWanted")
 </p>
+@using (Html.BeginForm("DeleteWanted", "UserPieces"))
+{
+    <p><input type="submit" value="Delete selected pieces" class="btn btn-default" /></p>
 <table class="table">
     <tr>
+        <th><input type="checkbox" id="selectAllWanted" /></th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
@@ -21,6 +25,9 @@
 @foreach (var item in Model.WantedPieces)
 {
     <tr>
+        <td>
+            <input type="checkbox" name="toDeleteWanted" value="@item.Id" class="toDeleteWanted">
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Piece.Name)
         </td>
@@ -42,20 +49,22 @@
 }
 
 </table>
+    <input type="submit" value="Delete selected pieces" class="btn btn-default" />
+}
 
 <h2>Owned pieces</h2>
 
 <p style="color:red">@TempData["ErrorMessage"]</p>
 
 <p>
-    @Html.ActionLink("Add owned piece", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")
+    @Html.ActionLink("Add owned piece(s)", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")
 </p>
 @using (Html.BeginForm("DeleteOwned", "UserPieces"))
 {
     <p><input type="submit" value="Delete selected pieces" class="btn btn-default" /></p>
 <table class="table">
     <tr>
-        <th><input type="checkbox" id="selectAll" /></th>
+        <th><input type="checkbox" id="selectAllOwned" /></th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
@@ -67,7 +76,7 @@
     {
         <tr>
             <td>
-               <input type="checkbox" name="toDelete" value="@item.Id" class="todelete">
+                <input type="checkbox" name="toDeleteOwned" value="@item.Id" class="toDeleteOwned">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Name)
@@ -94,17 +103,28 @@
 
 <script>
 $(document).ready(function() {
-    $('#selectAll').click(function (event) {  //on click
+    $('#selectAllWanted').click(function (event) {  //on click
         if(this.checked) { // check select status
-            $('.todelete').each(function () { //loop through each checkbox
+            $('.toDeleteWanted').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"
             });
         }else{
-            $('.todelete').each(function () { //loop through each checkbox
+            $('.toDeleteWanted').each(function () { //loop through each checkbox
                 this.checked = false; //deselect all checkboxes with class "checkbox1"
             });
         }
     });
 
+    $('#selectAllOwned').click(function (event) {  //on click
+        if (this.checked) { // check select status
+            $('.toDeleteOwned').each(function () { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"
+            });
+        } else {
+            $('.toDeleteOwned').each(function () { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
+            });
+        }
+    });
 });
 </script>

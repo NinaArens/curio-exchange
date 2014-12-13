@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.Piece, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.DropDownListFor(model => model.Piece_Id, new SelectList(Model.Pieces, "Id", "Name"))
+                    @Html.ListBoxFor(model => model.Piece_Ids, new SelectList(Model.Pieces, "Id", "Name"), new { size = 10 })
                     @Html.ValidationMessageFor(model => model.Piece_Id, "", new { @class = "text-danger" })
                 </div>
             </div>

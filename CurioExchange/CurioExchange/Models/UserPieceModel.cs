@@ -16,6 +16,8 @@ namespace CurioExchange.Models
 
         public int Piece_Id { get; set; }
 
+        public int[] Piece_Ids { get; set; }
+
         public AspNetUserModel User { get; set; }
 
         public string User_Id { get; set; }

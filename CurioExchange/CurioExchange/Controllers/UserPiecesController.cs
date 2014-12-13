@@ -68,7 +68,7 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                await _pieceAgent.CreaseUserPiece(model);
+                await _pieceAgent.CreaseUserPieces(model);
                 return RedirectToAction("Index");
             }
             catch
@@ -82,7 +82,7 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                await _pieceAgent.CreaseUserPiece(model);
+                await _pieceAgent.CreaseUserPieces(model);
                 return RedirectToAction("Index");
             }
             catch
@@ -164,11 +164,24 @@ namespace CurioExchange.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> DeleteOwned(int[] toDelete)
+        public async Task<ActionResult> DeleteOwned(int[] toDeleteOwned)
         {
-            if (toDelete != null && toDelete.Count() > 0)
+            if (toDeleteOwned != null && toDeleteOwned.Count() > 0)
             {
-                foreach (var item in toDelete)
+                foreach (var item in toDeleteOwned)
+                {
+                    await _pieceAgent.DeleteUserPiece(item);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> DeleteWanted(int[] toDeleteWanted)
+        {
+            if (toDeleteWanted != null && toDeleteWanted.Count() > 0)
+            {
+                foreach (var item in toDeleteWanted)
                 {
                     await _pieceAgent.DeleteUserPiece(item);
                 }
