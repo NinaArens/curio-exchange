@@ -5,7 +5,10 @@
 <div class="jumbotron">
     <h1>Curio Exchange</h1>
     <p class="lead">Curio Exchange is a website to help with the trading of curio pieces in Lusternia.</p>
-    <p><a href="~/Account/Register" class="btn btn-primary btn-lg">Register &raquo;</a> <a href="~/Account/Login" class="btn btn-primary btn-lg">Log in &raquo;</a></p>
+    @if (!Request.IsAuthenticated)
+    {
+        <p><a href="~/Account/Register" class="btn btn-primary btn-lg">Register &raquo;</a> <a href="~/Account/Login" class="btn btn-primary btn-lg">Log in &raquo;</a></p>
+    }
     @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
 </div>
 
@@ -27,4 +30,20 @@
         <p>The website will list users whom have your desired pieces or who seek a piece you have. Contact them ingame to get trading!</p>
         @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
     </div>
+</div>
+<br />
+<div class="row">
+    <center>
+        <p>
+            Find the website useful? Consider making a donation to help pay for the hosting. The bill is ~5 Euro a month. Any amount appreciated. <br />
+            Rather not pay? Help spread the word about the website. More users = more trades.
+        </p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="7M8NZGE7CPBUQ">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+
+    </center>
 </div>
