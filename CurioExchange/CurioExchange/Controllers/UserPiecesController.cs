@@ -151,9 +151,19 @@ namespace CurioExchange.Controllers
                         }
                         else
                         {
-                            //TempData["ErrorMessage"]+="The piece " + result + " does not yet exist in the database. ";
+                            if (TempData["ErrorMessage"] == null || TempData["ErrorMessage"].ToString() == "")
+                            {
+                                TempData["ErrorMessage"] = "The following piece(s) do not yet exist in the database: ";
+                            }
+                            TempData["ErrorMessage"]+= item.Groups[1].Value + " " + item.Groups[2].Value + ", ";
                         }
                     }
+                }
+
+                if (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != "")
+                {
+                    TempData["ErrorMessage"] = TempData["ErrorMessage"].ToString().Remove(TempData["ErrorMessage"].ToString().Length - 2);
+                    TempData["ErrorMessage"] += ".";
                 }
 
                 return RedirectToAction("Index");
