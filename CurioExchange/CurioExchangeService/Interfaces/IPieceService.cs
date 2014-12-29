@@ -31,6 +31,6 @@ namespace CurioExchangeService
         Task<ICollection<UserPiece>> RetrieveTradesOwned(string userId);
 
         [OperationContract]
-        Task<int> GetPieceIdForName(string name);
+        Task<int> GetPieceIdForName(string set, string piece);
     }
 }

@@ -132,14 +132,13 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                var results = Regex.Matches(import, "\\d+ +(?:Piece|Rare) +((?:\\w+ ?)+) +\\w+ +((?:\\w+ ?)+)");
+                var results = Regex.Matches(import, "[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,27})");
 
                 if (results.Count > 0)
                 {
                     foreach (Match item in results)
                     {
-                        var result = item.Groups[1].Value + item.Groups[2].Value;
-                        var pieceId = await _pieceAgent.GetPieceIdForName(result);
+                        var pieceId = await _pieceAgent.GetPieceIdForName(item.Groups[1].Value, item.Groups[2].Value);
 
                         if (pieceId > 0)
                         {
@@ -152,7 +151,7 @@ namespace CurioExchange.Controllers
                         }
                         else
                         {
-                            TempData["ErrorMessage"]+="The piece " + result + " does not yet exist in the database. ";
+                            //TempData["ErrorMessage"]+="The piece " + result + " does not yet exist in the database. ";
                         }
                     }
                 }

@@ -23,6 +23,6 @@ namespace CurioExchange.Interfaces
 
         Task<ICollection<UserPieceModel>> RetrieveTradesOwned(string userId);
 
-        Task<int> GetPieceIdForName(string name);
+        Task<int> GetPieceIdForName(string set, string piece);
     }
 }
