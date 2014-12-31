@@ -132,13 +132,13 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                var results = Regex.Matches(import, "[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,27})");
+                var results = Regex.Matches(import, "^[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
 
                 if (results.Count > 0)
                 {
                     foreach (Match item in results)
                     {
-                        var pieceId = await _pieceAgent.GetPieceIdForName(item.Groups[1].Value, item.Groups[2].Value);
+                        var pieceId = await _pieceAgent.GetPieceIdForName(item.Groups[1].Value.TrimEnd(), item.Groups[2].Value.Replace("\r",""));
 
                         if (pieceId > 0)
                         {
@@ -155,12 +155,12 @@ namespace CurioExchange.Controllers
                             {
                                 TempData["ErrorMessage"] = "The following piece(s) do not yet exist in the database: ";
                             }
-                            TempData["ErrorMessage"]+= item.Groups[1].Value + " " + item.Groups[2].Value + ", ";
+                            TempData["ErrorMessage"] += item.Groups[1].Value + " " + item.Groups[2].Value.Replace("\r", "") + ", ";
                         }
                     }
                 }
 
-                if (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != "")
+                if (TempData.Values.Count > 0 && (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != ""))
                 {
                     TempData["ErrorMessage"] = TempData["ErrorMessage"].ToString().Remove(TempData["ErrorMessage"].ToString().Length - 2);
                     TempData["ErrorMessage"] += ".";

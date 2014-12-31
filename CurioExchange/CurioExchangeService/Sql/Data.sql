@@ -1646,3 +1646,19 @@ INSERT INTO dbo.Pieces VALUES ('Feathered Plumes Seventh Lock Of Feathered Plume
 INSERT INTO dbo.Pieces VALUES ('Feathered Plumes Eighth Lock Of Feathered Plumes', 0, 264)
 INSERT INTO dbo.Pieces VALUES ('Feathered Plumes Ninth Lock Of Feathered Plumes', 0, 264)
 GO
+
+INSERT INTO dbo.Sets VALUES ('Powdered Wig', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Base Of Powdered Wig', 1, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig First Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Second Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Third Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Fourth Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Fifth Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Sixth Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Seventh Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Eighth Lock Of Powdered Wig', 0, 265)
+INSERT INTO dbo.Pieces VALUES ('Powdered Wig Ninth Lock Of Powdered Wig', 0, 265)
+GO
+
