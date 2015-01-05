@@ -43,6 +43,16 @@ namespace CurioExchangeService
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeleteOwnedPieces(string userId)
+        {
+            var toDelete = await _context.UserPieces.Where(t => t.User.Id == userId && t.Owned).ToListAsync();
+
+            if (toDelete != null && toDelete.Count > 0)
+            {
+                _context.UserPieces.RemoveRange(toDelete);
+            }  
+        }
+
         public async Task<ICollection<UserPiece>> RetrieveTradesWanted(string userId)
         {
             var wantedIds = _context.UserPieces.Where(t => t.User_Id == userId && t.Owned == false).Select(t => t.Piece_Id);

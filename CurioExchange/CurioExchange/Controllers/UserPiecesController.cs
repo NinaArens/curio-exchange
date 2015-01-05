@@ -128,10 +128,15 @@ namespace CurioExchange.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ImportOwned(string import)
+        public async Task<ActionResult> ImportOwned(string import, bool purge)
         {
             try
             {
+                if (purge)
+                {
+                    await _pieceAgent.DeleteOwnedPieces(User.Identity.GetUserId());
+                }
+
                 var results = Regex.Matches(import, "^[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
 
                 if (results.Count > 0)

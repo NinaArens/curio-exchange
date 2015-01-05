@@ -1662,3 +1662,17 @@ INSERT INTO dbo.Pieces VALUES ('Powdered Wig Eighth Lock Of Powdered Wig', 0, 26
 INSERT INTO dbo.Pieces VALUES ('Powdered Wig Ninth Lock Of Powdered Wig', 0, 265)
 GO
 
+INSERT INTO dbo.Sets VALUES ('Sunset Fins', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Base Of Sunset Fins', 1, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins First Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Second Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Third Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Fourth Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Fifth Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Sixth Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Seventh Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Eighth Lock Of Sunset Fins', 0, 266)
+INSERT INTO dbo.Pieces VALUES ('Sunset Fins Ninth Lock Of Sunset Fins', 0, 266)
+GO

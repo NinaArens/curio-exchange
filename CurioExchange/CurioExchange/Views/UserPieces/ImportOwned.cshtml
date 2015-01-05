@@ -11,5 +11,8 @@
 {
     @Html.TextArea("import", new { style="max-width:100%; width:100%;", @rows=15 });
     <br /><br />
+    @Html.CheckBox("purge");
+    <span>Purge all currently owned pieces before import</span>
+    <br /><br />
     <input type="submit" value="Add" class="btn btn-default" />
 }
