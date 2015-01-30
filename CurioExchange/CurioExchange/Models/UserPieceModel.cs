@@ -24,6 +24,8 @@ namespace CurioExchange.Models
 
         public bool Owned { get; set; }
 
+        public DateTime Added { get; set; }
+
         public ICollection<PieceModel> Pieces { get; set; }
 
         public int Amount { get; set; }

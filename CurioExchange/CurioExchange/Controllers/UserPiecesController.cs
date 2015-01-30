@@ -45,7 +45,8 @@ namespace CurioExchange.Controllers
             {
                 Pieces = await _pieceAgent.RetrievePieces(),
                 User_Id = User.Identity.GetUserId(),
-                Amount = 1
+                Amount = 1,
+                Added = DateTime.Now
             };
             model.Pieces = model.Pieces.OrderBy(t => t.Name).ToList();
             return View(model);
@@ -58,7 +59,8 @@ namespace CurioExchange.Controllers
                 Owned = true,
                 Pieces = await _pieceAgent.RetrievePieces(),
                 User_Id = User.Identity.GetUserId(),
-                Amount = 1
+                Amount = 1,
+                Added = DateTime.Now
             };
             model.Pieces = model.Pieces.OrderBy(t => t.Name).ToList();
             return View(model);
@@ -151,7 +153,8 @@ namespace CurioExchange.Controllers
                             {
                                 Owned = true,
                                 Piece_Id = pieceId,
-                                User_Id = User.Identity.GetUserId()
+                                User_Id = User.Identity.GetUserId(),
+                                Added = DateTime.Now
                             });
                         }
                         else

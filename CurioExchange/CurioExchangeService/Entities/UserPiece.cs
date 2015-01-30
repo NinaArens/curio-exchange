@@ -21,5 +21,7 @@ namespace CurioExchangeService.Entities
         public string User_Id { get; set; }
 
         public bool Owned { get; set; }
+
+        public DateTime Added { get; set; }
     }
 }

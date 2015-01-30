@@ -19,6 +19,7 @@
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
         <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Added) </th>
         <th></th>
     </tr>
 
@@ -48,6 +49,9 @@
             @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Added)
+        </td>
+        <td>
             @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
@@ -72,10 +76,11 @@
 <table class="table">
     <tr>
         <th><input type="checkbox" id="selectAllOwned" /></th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Rare) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Added) </th>
         <th></th>
     </tr>
 
@@ -103,6 +108,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
             </td>
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

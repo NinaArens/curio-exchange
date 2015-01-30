@@ -123,6 +123,10 @@
     <Compile Include="Migrations\201409041847193_UserMigration.Designer.cs">
       <DependentUpon>201409041847193_UserMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201501301909254_UserPieceAddedMigration.cs" />
+    <Compile Include="Migrations\201501301909254_UserPieceAddedMigration.Designer.cs">
+      <DependentUpon>201501301909254_UserPieceAddedMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
@@ -151,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409041847193_UserMigration.resx">
       <DependentUpon>201409041847193_UserMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201501301909254_UserPieceAddedMigration.resx">
+      <DependentUpon>201501301909254_UserPieceAddedMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
