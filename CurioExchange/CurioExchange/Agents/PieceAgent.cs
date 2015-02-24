@@ -56,9 +56,9 @@ namespace CurioExchange.Agents
             await _pieceService.DeleteUserPiece(id);
         }
 
-        public async Task DeleteOwnedPieces(string userId)
+        public async Task DeleteUserPieces(string userId, bool owned)
         {
-            await _pieceService.DeleteOwnedPieces(userId);
+            await _pieceService.DeleteUserPieces(userId, owned);
         }
 
         public async Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId)

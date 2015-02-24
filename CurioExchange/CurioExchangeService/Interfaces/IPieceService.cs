@@ -25,7 +25,7 @@ namespace CurioExchangeService
         Task DeleteUserPiece(int id);
 
         [OperationContract]
-        Task DeleteOwnedPieces(string userId);
+        Task DeleteUserPieces(string userId, bool owned);
 
         [OperationContract]
         Task<ICollection<UserPiece>> RetrieveTradesWanted(string userId);

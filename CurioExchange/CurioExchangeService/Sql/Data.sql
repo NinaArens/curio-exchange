@@ -2040,3 +2040,42 @@ INSERT INTO dbo.Pieces VALUES ('Relish Bottle Seventh Cup of Relish', 0, 294)
 INSERT INTO dbo.Pieces VALUES ('Relish Bottle Eighth Cup of Relish', 0, 294)
 INSERT INTO dbo.Pieces VALUES ('Relish Bottle Ninth Cup of Relish', 0, 294)
 GO
+
+INSERT INTO dbo.Sets VALUES ('Curry Bottle', 58)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Empty Curry Bottle', 1, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle First Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Second Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Third Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Fourth Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Fifth Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Sixth Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Seventh Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Eighth Pinch of Curry', 0, 294)
+INSERT INTO dbo.Pieces VALUES ('Curry Bottle Ninth Pinch of Curry', 0, 294)
+GO
+
+INSERT INTO dbo.Sets VALUES ('Candy Pink Curls', 47)
+INSERT INTO dbo.Sets VALUES ('King Marionette', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Base Of Candy Pink Curls', 1, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls First Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Second Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Third Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Fourth Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Fifth Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Sixth Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Seventh Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Eighth Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('Candy Pink Curls Ninth Lock Of Candy Pink Curls', 0, 295)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Head Of A King Marionette', 1, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Upper Torso Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Lower Torso Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Left Arm Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Right Arm Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Left Leg Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Right Leg Of A King Marionette', 0, 296)
+INSERT INTO dbo.Pieces VALUES ('King Marionette Strings Of A King Marionette', 0, 296)
+GO

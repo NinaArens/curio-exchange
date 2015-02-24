@@ -310,6 +310,7 @@
     <Content Include="Views\Trades\Index.cshtml" />
     <Content Include="Views\UserPieces\ImportOwned.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\UserPieces\ImportWanted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

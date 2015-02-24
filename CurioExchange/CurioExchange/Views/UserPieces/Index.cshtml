@@ -4,10 +4,12 @@
     ViewBag.Title = "Wanted & owned pieces";
 }
 
+<p style="color:red; margin-top: 10px;">@TempData["ErrorMessage"]</p>
+
 <h2>Wanted pieces</h2>
 
 <p>
-    @Html.ActionLink("Add wanted piece(s)", "CreateWanted")
+    @Html.ActionLink("Add wanted piece(s)", "CreateWanted") | @Html.ActionLink("Import wanted pieces", "ImportWanted")
 </p>
 @using (Html.BeginForm("DeleteWanted", "UserPieces"))
 {
@@ -64,8 +66,6 @@
 }
 
 <h2>Owned pieces</h2>
-
-<p style="color:red">@TempData["ErrorMessage"]</p>
 
 <p>
     @Html.ActionLink("Add owned piece(s)", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")

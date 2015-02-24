@@ -19,7 +19,7 @@ namespace CurioExchange.Interfaces
 
         Task DeleteUserPiece(int id);
 
-        Task DeleteOwnedPieces(string userId);
+        Task DeleteUserPieces(string userId, bool owned);
 
         Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId);
 

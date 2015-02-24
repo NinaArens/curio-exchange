@@ -129,6 +129,11 @@ namespace CurioExchange.Controllers
             return View();
         }
 
+        public ActionResult ImportWanted()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<ActionResult> ImportOwned(string import, bool purge)
         {
@@ -136,7 +141,7 @@ namespace CurioExchange.Controllers
             {
                 if (purge)
                 {
-                    await _pieceAgent.DeleteOwnedPieces(User.Identity.GetUserId());
+                    await _pieceAgent.DeleteUserPieces(User.Identity.GetUserId(), true);
                 }
 
                 var results = Regex.Matches(import, "^[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
@@ -166,6 +171,89 @@ namespace CurioExchange.Controllers
                             TempData["ErrorMessage"] += item.Groups[1].Value + " " + item.Groups[2].Value.Replace("\r", "") + ", ";
                         }
                     }
+                }
+
+                if (TempData.Values.Count > 0 && (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != ""))
+                {
+                    TempData["ErrorMessage"] = TempData["ErrorMessage"].ToString().Remove(TempData["ErrorMessage"].ToString().Length - 2);
+                    TempData["ErrorMessage"] += ".";
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ImportWanted(string import, bool purge)
+        {
+            try
+            {
+                if (purge)
+                {
+                    await _pieceAgent.DeleteUserPieces(User.Identity.GetUserId(), false);
+                }
+
+                if (import.Contains("--")) 
+                {
+                    if (import.Contains("*[ PARTIAL")) 
+                    { 
+                        var splitlist = import.Split(new string[] { "--"} , StringSplitOptions.RemoveEmptyEntries);
+
+                        if (splitlist.Count() > 0)
+                        {
+                            foreach (var item in splitlist)
+                            {
+                                var set = Regex.Matches(item, @"\*+\[ PARTIAL ([\w\s-']+) \]\*+");
+
+                                var pieces = Regex.Matches(item, @"([\w\s-':]{29})(?:Complete|Missing)", RegexOptions.Multiline);
+
+                                if (set.Count > 0 & pieces.Count > 1)
+                                {
+                                    foreach (Match piece in pieces)
+                                    {
+                                        if (piece.Groups[0].Value.EndsWith("Missing")) 
+                                        {
+                                            var missingpiece = piece.Groups[1].Value;
+                                            missingpiece = missingpiece.Trim().Replace(":", "");
+
+                                            var pieceId = await _pieceAgent.GetPieceIdForName(set[0].Groups[1].Value, missingpiece);
+
+                                            if (pieceId > 0)
+                                            {
+                                                await _pieceAgent.CreaseUserPiece(new UserPieceModel
+                                                {
+                                                    Owned = false,
+                                                    Piece_Id = pieceId,
+                                                    User_Id = User.Identity.GetUserId(),
+                                                    Added = DateTime.Now
+                                                });
+                                            }
+                                            else
+                                            {
+                                                if (TempData["ErrorMessage"] == null || TempData["ErrorMessage"].ToString() == "")
+                                                {
+                                                    TempData["ErrorMessage"] = "The following piece(s) do not yet exist in the database: ";
+                                                }
+                                                TempData["ErrorMessage"] += set[0].Groups[1].Value + " " + missingpiece + ", ";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Please include the starred header of CURIO SHOW PIECE <id>>.";
+                    }
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Please include the trailing dashed line of CURIO SHOW PIECE <id>>.";
                 }
 
                 if (TempData.Values.Count > 0 && (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != ""))
