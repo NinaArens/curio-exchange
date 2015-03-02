@@ -72,5 +72,12 @@ namespace CurioExchangeService
                 return 0;
             return result.Id;
         }
+
+        public async Task RefreshUserPiece(int id)
+        {
+            var userPiece = await _context.UserPieces.FindAsync(id);
+            userPiece.Added = DateTime.Now;
+            await _context.SaveChangesAsync();
+        }
     }
 }

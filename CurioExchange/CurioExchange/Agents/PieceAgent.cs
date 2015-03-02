@@ -77,5 +77,10 @@ namespace CurioExchange.Agents
         {
             return await _pieceService.GetPieceIdForName(set, piece);
         }
+
+        public async Task RefreshUserPiece(int id)
+        {
+            await _pieceService.RefreshUserPiece(id);
+        }
     }
 }

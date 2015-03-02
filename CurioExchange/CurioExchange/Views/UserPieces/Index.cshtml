@@ -11,9 +11,9 @@
 <p>
     @Html.ActionLink("Add wanted piece(s)", "CreateWanted") | @Html.ActionLink("Import wanted pieces", "ImportWanted")
 </p>
-@using (Html.BeginForm("DeleteWanted", "UserPieces"))
+@using (Html.BeginForm("ProcessWanted", "UserPieces"))
 {
-    <p><input type="submit" value="Delete selected pieces" class="btn btn-default" /></p>
+    <p><input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" /> <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" /></p>
 <table class="table">
     <tr>
         <th><input type="checkbox" id="selectAllWanted" /></th>
@@ -29,7 +29,7 @@
 {
     <tr>
         <td>
-            <input type="checkbox" name="toDeleteWanted" value="@item.Id" class="toDeleteWanted">
+            <input type="checkbox" name="selectedWanted" value="@item.Id" class="selectedWanted">
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Piece.Name)
@@ -56,13 +56,14 @@
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) | 
             @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }
 
 </table>
-    <input type="submit" value="Delete selected pieces" class="btn btn-default" />
+    <input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" />    <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" />
 }
 
 <h2>Owned pieces</h2>
@@ -70,9 +71,9 @@
 <p>
     @Html.ActionLink("Add owned piece(s)", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")
 </p>
-@using (Html.BeginForm("DeleteOwned", "UserPieces"))
+@using (Html.BeginForm("ProcessOwned", "UserPieces"))
 {
-    <p><input type="submit" value="Delete selected pieces" class="btn btn-default" /></p>
+    <p><input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" /> <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" /></p>
 <table class="table">
     <tr>
         <th><input type="checkbox" id="selectAllOwned" /></th>
@@ -88,7 +89,7 @@
     {
         <tr>
             <td>
-                <input type="checkbox" name="toDeleteOwned" value="@item.Id" class="toDeleteOwned">
+                <input type="checkbox" name="selectedOwned" value="@item.Id" class="selectedOwned">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Name)
@@ -115,23 +116,24 @@
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) | 
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
 </table>
-    <input type="submit" value="Delete selected pieces" class="btn btn-default" />
+    <input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" />    <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" />
 }
 
 <script>
 $(document).ready(function() {
     $('#selectAllWanted').click(function (event) {  //on click
         if(this.checked) { // check select status
-            $('.toDeleteWanted').each(function () { //loop through each checkbox
+            $('.selectedWanted').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"
             });
         }else{
-            $('.toDeleteWanted').each(function () { //loop through each checkbox
+            $('.selectedWanted').each(function () { //loop through each checkbox
                 this.checked = false; //deselect all checkboxes with class "checkbox1"
             });
         }
@@ -139,11 +141,11 @@ $(document).ready(function() {
 
     $('#selectAllOwned').click(function (event) {  //on click
         if (this.checked) { // check select status
-            $('.toDeleteOwned').each(function () { //loop through each checkbox
+            $('.selectedOwned').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"
             });
         } else {
-            $('.toDeleteOwned').each(function () { //loop through each checkbox
+            $('.selectedOwned').each(function () { //loop through each checkbox
                 this.checked = false; //deselect all checkboxes with class "checkbox1"
             });
         }

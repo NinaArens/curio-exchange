@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -24,6 +25,7 @@ namespace CurioExchange.Models
 
         public bool Owned { get; set; }
 
+        [DisplayName("Last updated")]
         public DateTime Added { get; set; }
 
         public ICollection<PieceModel> Pieces { get; set; }

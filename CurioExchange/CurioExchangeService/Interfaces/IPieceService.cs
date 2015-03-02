@@ -35,5 +35,8 @@ namespace CurioExchangeService
 
         [OperationContract]
         Task<int> GetPieceIdForName(string set, string piece);
+
+        [OperationContract]
+        Task RefreshUserPiece(int id);
     }
 }

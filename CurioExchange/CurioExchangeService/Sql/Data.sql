@@ -2079,3 +2079,34 @@ INSERT INTO dbo.Pieces VALUES ('King Marionette Left Leg Of A King Marionette', 
 INSERT INTO dbo.Pieces VALUES ('King Marionette Right Leg Of A King Marionette', 0, 296)
 INSERT INTO dbo.Pieces VALUES ('King Marionette Strings Of A King Marionette', 0, 296)
 GO
+
+INSERT INTO dbo.Pieces VALUES ('Dragon Marionette Teeth Of A Dragon Marionette', 0, 246)
+GO
+
+INSERT INTO dbo.Sets VALUES ('Delportian Moustache', 47)
+INSERT INTO dbo.Sets VALUES ('Pearl Crest', 47)
+GO
+
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Base Of Delportian Moustache', 1, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache First Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Second Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Third Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Fourth Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Fifth Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Sixth Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Seventh Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Eighth Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Delportian Moustache Ninth Lock Of Delportian Moustache', 0, 297)
+INSERT INTO dbo.Pieces VALUES ('Salt Bottle Empty Salt Bottle', 1, 175)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Base Of Pearl Crest', 1, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest First Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Second Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Third Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Fourth Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Fifth Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Sixth Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Seventh Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Eighth Lock Of Pearl Crest', 0, 298)
+INSERT INTO dbo.Pieces VALUES ('Pearl Crest Ninth Lock Of Pearl Crest', 0, 298)
+GO
+

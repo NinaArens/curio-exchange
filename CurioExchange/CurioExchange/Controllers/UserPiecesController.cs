@@ -124,6 +124,12 @@ namespace CurioExchange.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<ActionResult> Refresh(int id)
+        {
+            await _pieceAgent.RefreshUserPiece(id);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult ImportOwned()
         {
             return View();
@@ -271,26 +277,40 @@ namespace CurioExchange.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> DeleteOwned(int[] toDeleteOwned)
+        public async Task<ActionResult> ProcessOwned(int[] selectedOwned, string button)
         {
-            if (toDeleteOwned != null && toDeleteOwned.Count() > 0)
+            if (selectedOwned != null && selectedOwned.Count() > 0 && button == "Delete selected pieces")
             {
-                foreach (var item in toDeleteOwned)
+                foreach (var item in selectedOwned)
                 {
                     await _pieceAgent.DeleteUserPiece(item);
+                }
+            } 
+            else if (selectedOwned != null && selectedOwned.Count() > 0 && button == "Refresh selected pieces")
+            {
+                foreach (var item in selectedOwned)
+                {
+                    await _pieceAgent.RefreshUserPiece(item);
                 }
             }
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public async Task<ActionResult> DeleteWanted(int[] toDeleteWanted)
+        public async Task<ActionResult> ProcessWanted(int[] selectedWanted, string button)
         {
-            if (toDeleteWanted != null && toDeleteWanted.Count() > 0)
+            if (selectedWanted != null && selectedWanted.Count() > 0 && button == "Delete selected pieces")
             {
-                foreach (var item in toDeleteWanted)
+                foreach (var item in selectedWanted)
                 {
                     await _pieceAgent.DeleteUserPiece(item);
+                }
+            }
+            else if (selectedWanted != null && selectedWanted.Count() > 0 && button == "Refresh selected pieces")
+            {
+                foreach (var item in selectedWanted)
+                {
+                    await _pieceAgent.RefreshUserPiece(item);
                 }
             }
             return RedirectToAction("Index");
