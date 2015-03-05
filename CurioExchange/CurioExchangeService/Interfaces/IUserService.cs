@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace CurioExchangeService
 {
     [ServiceContract]
-    public interface IPieceService
+    public interface IUserService
     {
         [OperationContract]
-        Task<ICollection<Piece>> RetrievePieces();
+        Task<ICollection<AspNetUser>> RetrieveUsers();
 
         [OperationContract]
-        Task<int> GetPieceIdForName(string set, string piece);
+        Task<AspNetUser> RetrieveUserById(string userId);
     }
 }

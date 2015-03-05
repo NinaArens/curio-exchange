@@ -18,6 +18,14 @@ namespace CurioExchange.Installers
             container.Register(Component.For<IPieceAgent>().ImplementedBy<PieceAgent>().LifestyleTransient());
 
             container.Register(Component.For<IPieceService>().ImplementedBy<PieceService>().LifestyleTransient());
+
+            container.Register(Component.For<IUserPieceAgent>().ImplementedBy<UserPieceAgent>().LifestyleTransient());
+
+            container.Register(Component.For<IUserPieceService>().ImplementedBy<UserPieceService>().LifestyleTransient());
+
+            container.Register(Component.For<IUserAgent>().ImplementedBy<UserAgent>().LifestyleTransient());
+
+            container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifestyleTransient());
         }
     }
 }

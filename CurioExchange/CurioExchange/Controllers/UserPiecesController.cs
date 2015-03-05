@@ -15,10 +15,12 @@ namespace CurioExchange.Controllers
     [Authorize] 
     public class UserPiecesController : Controller
     {
+        private IUserPieceAgent _userPieceAgent;
         private IPieceAgent _pieceAgent;
 
-        public UserPiecesController(IPieceAgent pieceAgent)
+        public UserPiecesController(IUserPieceAgent userPieceAgent, IPieceAgent pieceAgent)
         {
+            _userPieceAgent = userPieceAgent;
             _pieceAgent = pieceAgent;
         }
 
@@ -26,9 +28,10 @@ namespace CurioExchange.Controllers
         public async Task<ActionResult> Index()
         {
             var model = new UserPieceViewModel();
-            var userPieces = await _pieceAgent.RetrieveUserPieces(User.Identity.GetUserId());
+            var userPieces = await _userPieceAgent.RetrieveUserPieces(User.Identity.GetUserId());
             model.WantedPieces.AddRange(userPieces.Where(t => t.Owned == false));
             model.OwnedPieces.AddRange(userPieces.Where(t => t.Owned));
+            model.Username = User.Identity.Name;
             return View(model);
         }
 
@@ -72,7 +75,7 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                await _pieceAgent.CreaseUserPieces(model);
+                await _userPieceAgent.CreaseUserPieces(model);
                 return RedirectToAction("Index");
             }
             catch
@@ -86,7 +89,7 @@ namespace CurioExchange.Controllers
         {
             try
             {
-                await _pieceAgent.CreaseUserPieces(model);
+                await _userPieceAgent.CreaseUserPieces(model);
                 return RedirectToAction("Index");
             }
             catch
@@ -120,13 +123,13 @@ namespace CurioExchange.Controllers
         // GET: UserPiece/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-            await _pieceAgent.DeleteUserPiece(id);
+            await _userPieceAgent.DeleteUserPiece(id);
             return RedirectToAction("Index");
         }
 
         public async Task<ActionResult> Refresh(int id)
         {
-            await _pieceAgent.RefreshUserPiece(id);
+            await _userPieceAgent.RefreshUserPiece(id);
             return RedirectToAction("Index");
         }
 
@@ -147,7 +150,7 @@ namespace CurioExchange.Controllers
             {
                 if (purge)
                 {
-                    await _pieceAgent.DeleteUserPieces(User.Identity.GetUserId(), true);
+                    await _userPieceAgent.DeleteUserPieces(User.Identity.GetUserId(), true);
                 }
 
                 var results = Regex.Matches(import, "^[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
@@ -160,7 +163,7 @@ namespace CurioExchange.Controllers
 
                         if (pieceId > 0)
                         {
-                            await _pieceAgent.CreaseUserPiece(new UserPieceModel
+                            await _userPieceAgent.CreaseUserPiece(new UserPieceModel
                             {
                                 Owned = true,
                                 Piece_Id = pieceId,
@@ -200,7 +203,7 @@ namespace CurioExchange.Controllers
             {
                 if (purge)
                 {
-                    await _pieceAgent.DeleteUserPieces(User.Identity.GetUserId(), false);
+                    await _userPieceAgent.DeleteUserPieces(User.Identity.GetUserId(), false);
                 }
 
                 if (import.Contains("--")) 
@@ -230,7 +233,7 @@ namespace CurioExchange.Controllers
 
                                             if (pieceId > 0)
                                             {
-                                                await _pieceAgent.CreaseUserPiece(new UserPieceModel
+                                                await _userPieceAgent.CreaseUserPiece(new UserPieceModel
                                                 {
                                                     Owned = false,
                                                     Piece_Id = pieceId,
@@ -283,14 +286,14 @@ namespace CurioExchange.Controllers
             {
                 foreach (var item in selectedOwned)
                 {
-                    await _pieceAgent.DeleteUserPiece(item);
+                    await _userPieceAgent.DeleteUserPiece(item);
                 }
             } 
             else if (selectedOwned != null && selectedOwned.Count() > 0 && button == "Refresh selected pieces")
             {
                 foreach (var item in selectedOwned)
                 {
-                    await _pieceAgent.RefreshUserPiece(item);
+                    await _userPieceAgent.RefreshUserPiece(item);
                 }
             }
             return RedirectToAction("Index");
@@ -303,14 +306,14 @@ namespace CurioExchange.Controllers
             {
                 foreach (var item in selectedWanted)
                 {
-                    await _pieceAgent.DeleteUserPiece(item);
+                    await _userPieceAgent.DeleteUserPiece(item);
                 }
             }
             else if (selectedWanted != null && selectedWanted.Count() > 0 && button == "Refresh selected pieces")
             {
                 foreach (var item in selectedWanted)
                 {
-                    await _pieceAgent.RefreshUserPiece(item);
+                    await _userPieceAgent.RefreshUserPiece(item);
                 }
             }
             return RedirectToAction("Index");

@@ -31,5 +31,7 @@ namespace CurioExchange.Models
         public ICollection<PieceModel> Pieces { get; set; }
 
         public int Amount { get; set; }
+
+        public bool ListedByMe { get; set; }
     }
 }

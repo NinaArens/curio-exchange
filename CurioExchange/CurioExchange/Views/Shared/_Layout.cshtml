@@ -48,6 +48,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("Pieces overview", "Index", "Pieces")</li>
+                    <li>@Html.ActionLink("Players", "Index", "Users")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Wanted & owned pieces", "Index", "UserPieces")</li>

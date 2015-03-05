@@ -1,0 +1,136 @@
+﻿@model CurioExchange.ViewModels.UserPieceViewModel
+
+@{
+    ViewBag.Title = Model.Username;
+}
+
+<h1>@Model.Username</h1>
+
+<h2>Wanted pieces</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Added) </th>
+        @if (User.Identity.IsAuthenticated)
+            {
+            <th>You have this</th>
+            }
+    </tr>
+
+
+    @foreach (var item in Model.WantedPieces)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Name)
+            </td>
+            <td>
+                @if (item.Piece.Rare)
+                    {
+                    <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                    <span>No</span>
+                    }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+                {
+                <td>
+                    @if (item.ListedByMe)
+                        {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                        }
+                        else
+                        {
+                        <span>No</span>
+                        }
+                </td>
+                }
+        </tr>
+        }
+
+</table>
+
+<h2>Owned pieces</h2>
+
+
+
+<table class="table">
+    <tr>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Rare) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Added) </th>
+        @if (User.Identity.IsAuthenticated)
+            {
+            <th>You want this</th>
+            }
+    </tr>
+
+    @foreach (var item in Model.OwnedPieces)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Name)
+            </td>
+            <td>
+                @if (item.Piece.Rare)
+                    {
+                    <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                    <span>No</span>
+                    }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+                {
+                <td>
+                    @if (item.ListedByMe)
+                        {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                        }
+                        else
+                        {
+                        <span>No</span>
+                        }
+                </td>
+                }
+        </tr>
+        }
+</table>
+
+<p>
+    @Html.ActionLink("Back to players", "Index")
+    @if (User.Identity.IsAuthenticated)
+    {
+        <span>
+            |
+            @Html.ActionLink("Back to possible trades", "Index", "Trades", null, null)
+        </span>;
+    }
+    </p>

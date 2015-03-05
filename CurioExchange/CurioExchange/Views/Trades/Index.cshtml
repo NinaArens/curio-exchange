@@ -28,7 +28,7 @@
             @Html.DisplayFor(modelItem => item.Piece.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.UserName)
+            @Html.ActionLink(item.User.UserName, "Details", "Users", new { userId = item.User.Id }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Added)
@@ -63,7 +63,7 @@
                 @Html.DisplayFor(modelItem => item.Piece.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.User.UserName)
+                @Html.ActionLink(item.User.UserName, "Details", "Users", new { userId = item.User.Id }, null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Added)

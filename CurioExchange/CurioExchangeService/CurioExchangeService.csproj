@@ -99,6 +99,8 @@
     <Content Include="Services\PieceService.svc" />
     <Content Include="scripts\ai.js" />
     <Content Include="scripts\ai.min.js" />
+    <Content Include="Services\UserPieceService.svc" />
+    <Content Include="Services\UserService.svc" />
     <Content Include="Sql\Data.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -127,11 +129,19 @@
     <Compile Include="Migrations\201501301909254_UserPieceAddedMigration.Designer.cs">
       <DependentUpon>201501301909254_UserPieceAddedMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IUserPieceService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserPieceService.svc.cs">
+      <DependentUpon>UserPieceService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CurioExchange.Interfaces
 {
-    public interface IPieceAgent
+    public interface IUserAgent
     {
-        Task<ICollection<PieceModel>> RetrievePieces();
+        Task<ICollection<AspNetUserModel>> RetrieveUsers();
 
-        Task<int> GetPieceIdForName(string set, string piece);
+        Task<AspNetUserModel> RetrieveUserById(string userId);
     }
 }

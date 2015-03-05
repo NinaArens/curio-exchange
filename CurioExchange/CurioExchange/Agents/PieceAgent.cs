@@ -23,64 +23,9 @@ namespace CurioExchange.Agents
             return Mapper.Map<ICollection<Piece>, ICollection<PieceModel>>(result);
         }
 
-        public async Task<ICollection<UserPieceModel>> RetrieveUserPieces(string userId)
-        {
-            var result = await _pieceService.RetrieveUserPieces(userId);
-            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
-        }
-
-        public async Task<int> CreaseUserPiece(UserPieceModel userPiece)
-        {
-            var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
-            return await _pieceService.CreaseUserPiece(mapped);
-        }
-
-        public async Task<IEnumerable<int>> CreaseUserPieces(UserPieceModel userPiece)
-        {
-            var result = new List<int>();
-            foreach (var item in userPiece.Piece_Ids)
-            {
-                userPiece.Piece_Id = item;
-                var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);
-
-                for (int i = 0; i < userPiece.Amount; i++)
-                {
-                    result.Add(await _pieceService.CreaseUserPiece(mapped));
-                }
-            }
-            return result;
-        }
-
-        public async Task DeleteUserPiece(int id)
-        {
-            await _pieceService.DeleteUserPiece(id);
-        }
-
-        public async Task DeleteUserPieces(string userId, bool owned)
-        {
-            await _pieceService.DeleteUserPieces(userId, owned);
-        }
-
-        public async Task<ICollection<UserPieceModel>> RetrieveTradesWanted(string userId)
-        {
-            var result = await _pieceService.RetrieveTradesWanted(userId);
-            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
-        }
-
-        public async Task<ICollection<UserPieceModel>> RetrieveTradesOwned(string userId)
-        {
-            var result = await _pieceService.RetrieveTradesOwned(userId);
-            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
-        }
-
         public async Task<int> GetPieceIdForName(string set, string piece)
         {
             return await _pieceService.GetPieceIdForName(set, piece);
-        }
-
-        public async Task RefreshUserPiece(int id)
-        {
-            await _pieceService.RefreshUserPiece(id);
         }
     }
 }
