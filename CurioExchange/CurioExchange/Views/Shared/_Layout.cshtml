@@ -54,6 +54,7 @@
                         <li>@Html.ActionLink("Wanted & owned pieces", "Index", "UserPieces")</li>
                         <li>@Html.ActionLink("Possible trades", "Index", "Trades")</li>
                     }
+                    <li>@Html.ActionLink("Contact", "Index", "Contact")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -64,7 +65,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - <a href="http://www.ninaarens.be" target="_blank">Nina Arens</a></p>
+            <p>&copy; 2014 - @DateTime.Now.Year &middot; <a href="http://www.levelupdigital.be" target="_blank">Level Up Digital</a></p>
         </footer>
     </div>
 

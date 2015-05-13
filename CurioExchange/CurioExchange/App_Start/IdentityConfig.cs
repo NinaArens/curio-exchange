@@ -30,7 +30,7 @@ namespace CurioExchange
             var myMessage = new SendGridMessage();
             myMessage.AddTo(message.Destination);
             myMessage.From = new System.Net.Mail.MailAddress(
-                                "nina@ninaarens.be", "Curio Exchange");
+                                "noreply@levelupdigital.be", "Curio Exchange");
             myMessage.Subject = message.Subject;
             myMessage.Text = message.Body;
             myMessage.Html = message.Body;
