@@ -14,55 +14,55 @@
 @using (Html.BeginForm("ProcessWanted", "UserPieces"))
 {
     <p><input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" /> <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" /></p>
-<table class="table">
-    <tr>
-        <th><input type="checkbox" id="selectAllWanted" /></th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
-        <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Added) </th>
-        <th></th>
-    </tr>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th><input type="checkbox" id="selectAllWanted" /></th>
+            <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece) </th>
+            <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Rare) </th>
+            <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set) </th>
+            <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+            <th>@Html.LabelFor(model => model.WantedPieces.FirstOrDefault().Added) </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model.WantedPieces)
-{
-    <tr>
-        <td>
-            <input type="checkbox" name="selectedWanted" value="@item.Id" class="selectedWanted">
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Piece.Name)
-        </td>
-        <td>
-            @if (item.Piece.Rare)
-            {
-                <span style="color: limegreen; font-weight: bold;">Yes</span>
-            }
-            else
-            {
-                <span>No</span>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Piece.Set.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Added)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-            @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) | 
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model.WantedPieces)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="selectedWanted" value="@item.Id" class="selectedWanted">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Name)
+                </td>
+                <td>
+                    @if (item.Piece.Rare)
+                    {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Added)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
     <input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" />    <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" />
 }
 
@@ -74,54 +74,54 @@
 @using (Html.BeginForm("ProcessOwned", "UserPieces"))
 {
     <p><input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" /> <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" /></p>
-<table class="table">
-    <tr>
-        <th><input type="checkbox" id="selectAllOwned" /></th>
-        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece) </th>
-        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Rare) </th>
-        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set) </th>
-        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set.Collection) </th>
-        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Added) </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.OwnedPieces)
-    {
+    <table class="table table-striped table-hover">
         <tr>
-            <td>
-                <input type="checkbox" name="selectedOwned" value="@item.Id" class="selectedOwned">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piece.Name)
-            </td>
-            <td>
-                @if (item.Piece.Rare)
-                {
-                    <span style="color: limegreen; font-weight: bold;">Yes</span>
-                }
-                else
-                {
-                    <span>No</span>
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piece.Set.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Added)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) | 
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            <th><input type="checkbox" id="selectAllOwned" /></th>
+            <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece) </th>
+            <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Rare) </th>
+            <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set) </th>
+            <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set.Collection) </th>
+            <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Added) </th>
+            <th></th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model.OwnedPieces)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="selectedOwned" value="@item.Id" class="selectedOwned">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Name)
+                </td>
+                <td>
+                    @if (item.Piece.Rare)
+                    {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Added)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Refresh", "Refresh", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
     <input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" />    <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" />
 }
 

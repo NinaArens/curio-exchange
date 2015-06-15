@@ -2192,3 +2192,17 @@ INSERT INTO dbo.Pieces VALUES ('Fiery Mane Seventh Lock Of Fiery Mane', 0, 1304)
 INSERT INTO dbo.Pieces VALUES ('Fiery Mane Eighth Lock Of Fiery Mane', 0, 1304)
 INSERT INTO dbo.Pieces VALUES ('Fiery Mane Ninth Lock Of Fiery Mane', 0, 1304)
 INSERT INTO dbo.Pieces VALUES ('Rose Of Gems And Gold Second Gem Petal', 0, 1305)
+
+INSERT INTO dbo.Sets VALUES ('Blue-black Dreadlocks', 47)
+
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Base Of Blue-black Dreadlocks', 1, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks First Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Second Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Third Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Fourth Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Fifth Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Sixth Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Seventh Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Eighth Lock Of Blue-black Dreadlocks', 0, 1306)
+INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Ninth Lock Of Blue-black Dreadlocks', 0, 1306)
+
