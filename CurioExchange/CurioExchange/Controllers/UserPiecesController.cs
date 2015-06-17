@@ -216,7 +216,9 @@ namespace CurioExchange.Controllers
                         {
                             foreach (var item in splitlist)
                             {
-                                var set = Regex.Matches(item, @"\*+\[ PARTIAL ([\w\s-']+) \]\*+");
+                                //var set = Regex.Matches(item, @"\*+\[ PARTIAL ([\w\s-']+) \]\*+");
+
+                                var set = Regex.Matches(item, @"Curio Set: (.*)\n");
 
                                 var pieces = Regex.Matches(item, @"([\w\s-':]{29})(?:Complete|Missing)", RegexOptions.Multiline);
 
@@ -229,7 +231,7 @@ namespace CurioExchange.Controllers
                                             var missingpiece = piece.Groups[1].Value;
                                             missingpiece = missingpiece.Trim().Replace(":", "");
 
-                                            var pieceId = await _pieceAgent.GetPieceIdForName(set[0].Groups[1].Value, missingpiece);
+                                            var pieceId = await _pieceAgent.GetPieceIdForName(set[0].Groups[1].Value.Replace("\r",""), missingpiece);
 
                                             if (pieceId > 0)
                                             {
