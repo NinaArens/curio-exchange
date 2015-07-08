@@ -8,6 +8,8 @@
 
 <p>Hold CTRL to select multiple individual pieces. Hold SHIFT with a piece selected and click on another and the whole inbetween range will be selected. Hold CTRL while doing the latter to not lose your already existing selection.</p>
 
+<p>Use the textbox at the top of the listbox to filter pieces by part of their name. Note however that typing into the box will clear all selections.</p>
+
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -21,7 +23,8 @@
             @Html.LabelFor(model => model.Piece, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.ListBoxFor(model => model.Piece_Ids, new SelectList(Model.Pieces, "Id", "Name"), new { size = 10 })
+                    @Html.TextBox("FilterWanted", "", htmlAttributes: new { @style = "width: 450px;", @class="filter" })<br/>
+                    @Html.ListBoxFor(model => model.Piece_Ids, new SelectList(Model.Pieces, "Id", "Name"), new { size = 10, @id = "Listbox", @style = "width: 450px;" })
                     @Html.ValidationMessageFor(model => model.Piece_Id, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -51,3 +54,63 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script type="text/javascript">
+
+
+
+        function DoListBoxFilter(listBoxSelector, filter, keys, values) {
+
+            var list = $(listBoxSelector);
+
+            var selectBase = '<option value="{0}">{1}</option>';
+
+
+
+            list.empty();
+
+            for (i = 0; i < values.length; ++i) {
+
+
+
+                var value = values[i];
+
+
+
+                if (value == "" || value.toLowerCase().indexOf(filter.toLowerCase()) >= 0) {
+
+                    var temp = '<option value="' + keys[i] + '">' + value + '</option>';
+
+                    list.append(temp);
+
+                }
+
+            }
+
+        }
+
+        var keys = [];
+
+        var values = [];
+
+
+
+        var options = $('#Listbox option');
+
+        $.each(options, function(index, item) {
+
+            keys.push(item.value);
+
+            values.push(item.innerHTML);
+
+        });
+
+        $('#FilterWanted').keyup(function () {
+
+            var filter = $(this).val();
+
+            DoListBoxFilter('#Listbox', filter, keys, values);
+
+        });
+
+</script>
