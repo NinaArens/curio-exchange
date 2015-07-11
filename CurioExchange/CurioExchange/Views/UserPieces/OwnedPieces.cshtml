@@ -1,0 +1,94 @@
+﻿@model List<CurioExchange.Models.UserPieceModel>
+
+@{
+    ViewBag.Title = "Owned pieces";
+}
+
+<p style="color:red; margin-top: 10px;">@TempData["ErrorMessage"]</p>
+
+<h2>Owned pieces</h2>
+
+<p>
+    @Html.ActionLink("Add owned piece(s)", "CreateOwned") | @Html.ActionLink("Import owned pieces", "ImportOwned")
+</p>
+@using (Html.BeginForm("ProcessOwned", "UserPieces"))
+{
+    <p><input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" /> <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" /></p>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th><input type="checkbox" id="selectAllOwned" /></th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().Piece) </th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().Piece.Rare) </th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().Piece.Set) </th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().Piece.Set.Collection) </th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().Added) </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="selectedOwned" value="@item.Id" class="selectedOwned">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Name)
+                </td>
+                <td>
+                    @if (item.Piece.Rare)
+                    {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piece.Set.Collection.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Added)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Refresh", "Refresh", new { id = item.Id, owned = true }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, owned = true })
+                </td>
+            </tr>
+        }
+    </table>
+    <input type="submit" value="Refresh selected pieces" class="btn btn-default" name="button" />    <input type="submit" value="Delete selected pieces" class="btn btn-default" name="button" />
+}
+
+<script>
+$(document).ready(function() {
+    $('#selectAllWanted').click(function (event) {  //on click
+        if(this.checked) { // check select status
+            $('.selectedWanted').each(function () { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"
+            });
+        }else{
+            $('.selectedWanted').each(function () { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
+            });
+        }
+    });
+
+    $('#selectAllOwned').click(function (event) {  //on click
+        if (this.checked) { // check select status
+            $('.selectedOwned').each(function () { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"
+            });
+        } else {
+            $('.selectedOwned').each(function () { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
+            });
+        }
+    });
+});
+</script>

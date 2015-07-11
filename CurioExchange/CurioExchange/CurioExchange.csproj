@@ -320,6 +320,8 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Changelog\Index.cshtml" />
+    <Content Include="Views\UserPieces\WantedPieces.cshtml" />
+    <Content Include="Views\UserPieces\OwnedPieces.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

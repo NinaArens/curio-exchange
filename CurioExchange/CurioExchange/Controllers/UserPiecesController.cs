@@ -25,13 +25,24 @@ namespace CurioExchange.Controllers
         }
 
         // GET: UserPiece
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var model = new UserPieceViewModel();
-            var userPieces = await _userPieceAgent.RetrieveUserPieces(User.Identity.GetUserId());
-            model.WantedPieces.AddRange(userPieces.Where(t => t.Owned == false));
-            model.OwnedPieces.AddRange(userPieces.Where(t => t.Owned));
-            model.Username = User.Identity.Name;
+            return View();
+        }
+
+        public async Task<ActionResult> WantedPieces()
+        {
+            var model = new List<UserPieceModel>();
+            var userPieces = await _userPieceAgent.RetrieveUserPiecesWanted(User.Identity.GetUserId());
+            model.AddRange(userPieces);
+            return View(model);
+        }
+
+        public async Task<ActionResult> OwnedPieces()
+        {
+            var model = new List<UserPieceModel>();
+            var userPieces = await _userPieceAgent.RetrieveUserPiecesOwned(User.Identity.GetUserId());
+            model.AddRange(userPieces);
             return View(model);
         }
 
@@ -76,7 +87,7 @@ namespace CurioExchange.Controllers
             try
             {
                 await _userPieceAgent.CreaseUserPieces(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("WantedPieces");
             }
             catch
             {
@@ -90,7 +101,7 @@ namespace CurioExchange.Controllers
             try
             {
                 await _userPieceAgent.CreaseUserPieces(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("OwnedPieces");
             }
             catch
             {
@@ -121,16 +132,22 @@ namespace CurioExchange.Controllers
         }
 
         // GET: UserPiece/Delete/5
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(int id, bool owned)
         {
             await _userPieceAgent.DeleteUserPiece(id);
-            return RedirectToAction("Index");
+            if (owned)
+                return RedirectToAction("OwnedPieces");
+            else
+                return RedirectToAction("WantedPieces");
         }
 
-        public async Task<ActionResult> Refresh(int id)
+        public async Task<ActionResult> Refresh(int id, bool owned)
         {
             await _userPieceAgent.RefreshUserPiece(id);
-            return RedirectToAction("Index");
+            if (owned)
+                return RedirectToAction("OwnedPieces");
+            else
+                return RedirectToAction("WantedPieces");
         }
 
         public ActionResult ImportOwned()
@@ -188,7 +205,7 @@ namespace CurioExchange.Controllers
                     TempData["ErrorMessage"] += ".";
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("OwnedPieces");
             }
             catch
             {
@@ -273,7 +290,7 @@ namespace CurioExchange.Controllers
                     TempData["ErrorMessage"] += ".";
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("WantedPieces");
             }
             catch
             {
@@ -298,7 +315,7 @@ namespace CurioExchange.Controllers
                     await _userPieceAgent.RefreshUserPiece(item);
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("OwnedPieces");
         }
 
         [HttpPost]
@@ -318,7 +335,7 @@ namespace CurioExchange.Controllers
                     await _userPieceAgent.RefreshUserPiece(item);
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("WantedPieces");
         }
     }
 }

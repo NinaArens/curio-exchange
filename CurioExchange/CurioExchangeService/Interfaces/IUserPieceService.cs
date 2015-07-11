@@ -16,6 +16,12 @@ namespace CurioExchangeService
         Task<ICollection<UserPiece>> RetrieveUserPieces(string userId);
 
         [OperationContract]
+        Task<ICollection<UserPiece>> RetrieveUserPiecesWanted(string userId);
+
+        [OperationContract]
+        Task<ICollection<UserPiece>> RetrieveUserPiecesOwned(string userId);
+
+        [OperationContract]
         Task<int> CreaseUserPiece(UserPiece userPiece);
 
         [OperationContract]

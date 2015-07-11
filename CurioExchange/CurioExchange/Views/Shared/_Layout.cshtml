@@ -51,7 +51,8 @@
                     <li>@Html.ActionLink("Players", "Index", "Users")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Wanted & owned pieces", "Index", "UserPieces")</li>
+                        <li>@Html.ActionLink("Wanted pieces", "WantedPieces", "UserPieces")</li>
+                        <li>@Html.ActionLink("Owned pieces", "OwnedPieces", "UserPieces")</li>
                         <li>@Html.ActionLink("Possible trades", "Index", "Trades")</li>
                     }
                     <li>@Html.ActionLink("Changelog", "Index", "Changelog")</li>

@@ -24,6 +24,16 @@ namespace CurioExchangeService
             return await _context.UserPieces.Where(t => t.User.Id == userId).Include(t => t.Piece.Set.Collection).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
         }
 
+        public async Task<ICollection<UserPiece>> RetrieveUserPiecesWanted(string userId)
+        {
+            return await _context.UserPieces.Where(t => t.User.Id == userId && !t.Owned).Include(t => t.Piece.Set.Collection).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
+        }
+
+        public async Task<ICollection<UserPiece>> RetrieveUserPiecesOwned(string userId)
+        {
+            return await _context.UserPieces.Where(t => t.User.Id == userId && t.Owned).Include(t => t.Piece.Set.Collection).OrderBy(t => t.Piece.Set.Collection.Name).ThenBy(t => t.Piece.Set.Name).ToListAsync();
+        }
+
         public async Task<int> CreaseUserPiece(UserPiece userPiece)
         {
             _context.UserPieces.Add(userPiece);

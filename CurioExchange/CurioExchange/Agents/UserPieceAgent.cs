@@ -36,6 +36,18 @@ namespace CurioExchange.Agents
             return mapped;
         }
 
+        public async Task<ICollection<UserPieceModel>> RetrieveUserPiecesWanted(string userId)
+        {
+            var result = await _userPieceService.RetrieveUserPiecesWanted(userId);
+            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
+        }
+
+        public async Task<ICollection<UserPieceModel>> RetrieveUserPiecesOwned(string userId)
+        {
+            var result = await _userPieceService.RetrieveUserPiecesOwned(userId);
+            return Mapper.Map<ICollection<UserPiece>, ICollection<UserPieceModel>>(result);
+        }
+
         public async Task<int> CreaseUserPiece(UserPieceModel userPiece)
         {
             var mapped = Mapper.Map<UserPieceModel, UserPiece>(userPiece);

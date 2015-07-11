@@ -11,6 +11,10 @@ namespace CurioExchange.Interfaces
     {
         Task<ICollection<UserPieceModel>> RetrieveUserPieces(string userId, string name = null);
 
+        Task<ICollection<UserPieceModel>> RetrieveUserPiecesWanted(string userId);
+
+        Task<ICollection<UserPieceModel>> RetrieveUserPiecesOwned(string userId);
+
         Task<int> CreaseUserPiece(UserPieceModel userPiece);
 
         Task<IEnumerable<int>> CreaseUserPieces(UserPieceModel userPiece);
