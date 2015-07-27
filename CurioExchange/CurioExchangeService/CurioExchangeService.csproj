@@ -131,6 +131,10 @@
     </Compile>
     <Compile Include="Interfaces\IUserPieceService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Migrations\201507271409178_OwnedID.cs" />
+    <Compile Include="Migrations\201507271409178_OwnedID.Designer.cs">
+      <DependentUpon>201507271409178_OwnedID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
@@ -168,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501301909254_UserPieceAddedMigration.resx">
       <DependentUpon>201501301909254_UserPieceAddedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507271409178_OwnedID.resx">
+      <DependentUpon>201507271409178_OwnedID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

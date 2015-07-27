@@ -23,5 +23,7 @@ namespace CurioExchangeService.Entities
         public bool Owned { get; set; }
 
         public DateTime Added { get; set; }
+
+        public Nullable<int> OwnedID { get; set; }
     }
 }

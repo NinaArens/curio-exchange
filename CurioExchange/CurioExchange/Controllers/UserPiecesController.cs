@@ -170,13 +170,13 @@ namespace CurioExchange.Controllers
                     await _userPieceAgent.DeleteUserPieces(User.Identity.GetUserId(), true);
                 }
 
-                var results = Regex.Matches(import, "^[\\d ]{7} [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
+                var results = Regex.Matches(import, "^([\\d ]{7}) [\\w\\s]{8} ([\\w\\s-']{20}) [\\w\\s-']{12} ([\\w\\s-']{0,28})$", RegexOptions.Multiline);
 
                 if (results.Count > 0)
                 {
                     foreach (Match item in results)
                     {
-                        var pieceId = await _pieceAgent.GetPieceIdForName(item.Groups[1].Value.TrimEnd(), item.Groups[2].Value.Replace("\r",""));
+                        var pieceId = await _pieceAgent.GetPieceIdForName(item.Groups[2].Value.TrimEnd(), item.Groups[3].Value.Replace("\r",""));
 
                         if (pieceId > 0)
                         {
@@ -185,7 +185,8 @@ namespace CurioExchange.Controllers
                                 Owned = true,
                                 Piece_Id = pieceId,
                                 User_Id = User.Identity.GetUserId(),
-                                Added = DateTime.Now
+                                Added = DateTime.Now,
+                                OwnedID = Convert.ToInt32(item.Groups[1].Value.TrimEnd())
                             });
                         }
                         else
@@ -194,7 +195,7 @@ namespace CurioExchange.Controllers
                             {
                                 TempData["ErrorMessage"] = "The following piece(s) do not yet exist in the database: ";
                             }
-                            TempData["ErrorMessage"] += item.Groups[1].Value + " " + item.Groups[2].Value.Replace("\r", "") + ", ";
+                            TempData["ErrorMessage"] += item.Groups[2].Value + " " + item.Groups[3].Value.Replace("\r", "") + ", ";
                         }
                     }
                 }

@@ -73,6 +73,7 @@
 
 <table class="table table-striped table-hover">
     <tr>
+        <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().OwnedID) </th>
         <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece) </th>
         <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Rare) </th>
         <th>@Html.LabelFor(model => model.OwnedPieces.FirstOrDefault().Piece.Set) </th>
@@ -87,6 +88,9 @@
     @foreach (var item in Model.OwnedPieces)
     {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnedID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Piece.Name)
             </td>

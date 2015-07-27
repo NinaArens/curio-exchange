@@ -17,6 +17,7 @@
     <table class="table table-striped table-hover">
         <tr>
             <th><input type="checkbox" id="selectAllOwned" /></th>
+            <th>@Html.LabelFor(model => model.FirstOrDefault().OwnedID) </th>
             <th>@Html.LabelFor(model => model.FirstOrDefault().Piece) </th>
             <th>@Html.LabelFor(model => model.FirstOrDefault().Piece.Rare) </th>
             <th>@Html.LabelFor(model => model.FirstOrDefault().Piece.Set) </th>
@@ -30,6 +31,9 @@
             <tr>
                 <td>
                     <input type="checkbox" name="selectedOwned" value="@item.Id" class="selectedOwned">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OwnedID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Piece.Name)
