@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Import owned sets";
+}
+
+<h2>Import owned sets</h2>
+
+<p>Paste the exact output of CURIOS COMPLETE in the box below to import many sets at once. Doubles will be registered as multiple entries. Sets not yet in the database will not be added, and you will be notified off this. Consider reporting this so that they may be added for future use!</p>
+
+@using (Html.BeginForm())
+{
+    @Html.TextArea("import", new { style="max-width:100%; width:100%;", @rows=15 });
+    <br /><br />
+    @Html.CheckBox("purge");
+    <span>Purge all currently owned sets before import</span>
+    <br /><br />
+    <input type="submit" value="Add" class="btn btn-default" />
+}

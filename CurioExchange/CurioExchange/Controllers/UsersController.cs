@@ -12,12 +12,14 @@ namespace CurioExchange.Controllers
     public class UsersController : Controller
     {
         private IUserPieceAgent _userPieceAgent;
+        private IUserSetAgent _userSetAgent;
         private IUserAgent _userAgent;
 
-        public UsersController(IUserPieceAgent userPieceAgent, IUserAgent userAgent)
+        public UsersController(IUserPieceAgent userPieceAgent, IUserAgent userAgent, IUserSetAgent userSetAgent)
         {
             _userPieceAgent = userPieceAgent;
             _userAgent = userAgent;
+            _userSetAgent = userSetAgent;
         }
 
         // GET: User
@@ -37,6 +39,9 @@ namespace CurioExchange.Controllers
             var userPieces = await _userPieceAgent.RetrieveUserPieces(userId, User.Identity.Name);
             model.WantedPieces.AddRange(userPieces.Where(t => t.Owned == false));
             model.OwnedPieces.AddRange(userPieces.Where(t => t.Owned));
+            var userSets = await _userSetAgent.RetrieveUserSets(userId, User.Identity.Name);
+            model.WantedSets.AddRange(userSets.Where(t => t.Owned == false));
+            model.OwnedSets.AddRange(userSets.Where(t => t.Owned));
             var user = await _userAgent.RetrieveUserById(userId);
             if (user != null) model.Username = user.UserName;
             return View(model);

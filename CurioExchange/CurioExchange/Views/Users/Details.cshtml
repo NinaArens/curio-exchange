@@ -131,6 +131,96 @@
 </table>
 
 
+<h2>Wanted sets</h2>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>@Html.LabelFor(model => model.WantedSets.FirstOrDefault().Set) </th>
+        <th>@Html.LabelFor(model => model.WantedSets.FirstOrDefault().Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.WantedSets.FirstOrDefault().Added) </th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th>You have this</th>
+        }
+    </tr>
+
+
+    @foreach (var item in Model.WantedSets)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Set.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Set.Collection.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td>
+                    @if (item.ListedByMe)
+                    {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+            }
+        </tr>
+    }
+
+</table>
+
+
+<h2>Owned sets</h2>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>@Html.LabelFor(model => model.OwnedSets.FirstOrDefault().OwnedID) </th>
+        <th>@Html.LabelFor(model => model.OwnedSets.FirstOrDefault().Set) </th>
+        <th>@Html.LabelFor(model => model.OwnedSets.FirstOrDefault().Set.Collection) </th>
+        <th>@Html.LabelFor(model => model.OwnedSets.FirstOrDefault().Added) </th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th>You want this</th>
+        }
+    </tr>
+
+    @foreach (var item in Model.OwnedSets)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnedID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Set.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Set.Collection.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
+            </td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <td>
+                    @if (item.ListedByMe)
+                    {
+                        <span style="color: limegreen; font-weight: bold;">Yes</span>
+                    }
+                    else
+                    {
+                        <span>No</span>
+                    }
+                </td>
+            }
+        </tr>
+    }
+</table>
 
 <p>
     @Html.ActionLink("Back to players", "Index")

@@ -15,5 +15,6 @@ namespace CurioExchangeService
         public DbSet<Collection> Collections { get; set; }
         public DbSet<AspNetUser> AspNetUsers { get; set; }
         public DbSet<UserPiece> UserPieces { get; set; }
+        public DbSet<UserSet> UserSets { get; set; }
     }
 }

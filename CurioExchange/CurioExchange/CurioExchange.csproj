@@ -203,8 +203,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agents\SetAgent.cs" />
     <Compile Include="Agents\PieceAgent.cs" />
     <Compile Include="Agents\UserAgent.cs" />
+    <Compile Include="Agents\UserSetAgent.cs" />
     <Compile Include="Agents\UserPieceAgent.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PiecesController.cs" />
     <Compile Include="Controllers\TradesController.cs" />
+    <Compile Include="Controllers\UserSetsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\UserPiecesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,10 +230,13 @@
     <Compile Include="Installers\ContextInstaller.cs" />
     <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Installers\LoggerInstaller.cs" />
+    <Compile Include="Interfaces\ISetAgent.cs" />
     <Compile Include="Interfaces\IPieceAgent.cs" />
     <Compile Include="Interfaces\IUserAgent.cs" />
+    <Compile Include="Interfaces\IUserSetAgent.cs" />
     <Compile Include="Interfaces\IUserPieceAgent.cs" />
     <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\UserSetModel.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\AspNetUserModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -322,6 +328,12 @@
     <Content Include="Views\Changelog\Index.cshtml" />
     <Content Include="Views\UserPieces\WantedPieces.cshtml" />
     <Content Include="Views\UserPieces\OwnedPieces.cshtml" />
+    <Content Include="Views\UserSets\Index.cshtml" />
+    <Content Include="Views\UserSets\WantedSets.cshtml" />
+    <Content Include="Views\UserSets\CreateWanted.cshtml" />
+    <Content Include="Views\UserSets\CreateOwned.cshtml" />
+    <Content Include="Views\UserSets\OwnedSets.cshtml" />
+    <Content Include="Views\UserSets\ImportOwned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

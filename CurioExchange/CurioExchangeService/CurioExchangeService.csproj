@@ -96,9 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MigrationStrings.txt" />
+    <Content Include="Services\SetService.svc" />
     <Content Include="Services\PieceService.svc" />
     <Content Include="scripts\ai.js" />
     <Content Include="scripts\ai.min.js" />
+    <Content Include="Services\UserSetService.svc" />
     <Content Include="Services\UserPieceService.svc" />
     <Content Include="Services\UserService.svc" />
     <Content Include="Sql\Data.sql" />
@@ -109,10 +111,13 @@
     <Compile Include="Entities\AspNetUser.cs" />
     <Compile Include="Entities\Collection.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\UserSet.cs" />
     <Compile Include="Entities\UserPiece.cs" />
     <Compile Include="Entities\Piece.cs" />
     <Compile Include="Entities\Set.cs" />
+    <Compile Include="Interfaces\ISetService.cs" />
     <Compile Include="Interfaces\IPieceService.cs" />
+    <Compile Include="Interfaces\IUserSetService.cs" />
     <Compile Include="Migrations\201409032322214_Initial.cs" />
     <Compile Include="Migrations\201409032322214_Initial.Designer.cs">
       <DependentUpon>201409032322214_Initial.cs</DependentUpon>
@@ -135,11 +140,21 @@
     <Compile Include="Migrations\201507271409178_OwnedID.Designer.cs">
       <DependentUpon>201507271409178_OwnedID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201507301612009_UserSets.cs" />
+    <Compile Include="Migrations\201507301612009_UserSets.Designer.cs">
+      <DependentUpon>201507301612009_UserSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\SetService.svc.cs">
+      <DependentUpon>SetService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\PieceService.svc.cs">
       <DependentUpon>PieceService.svc</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserSetService.svc.cs">
+      <DependentUpon>UserSetService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Services\UserPieceService.svc.cs">
       <DependentUpon>UserPieceService.svc</DependentUpon>
     </Compile>
@@ -175,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201507271409178_OwnedID.resx">
       <DependentUpon>201507271409178_OwnedID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507301612009_UserSets.resx">
+      <DependentUpon>201507301612009_UserSets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

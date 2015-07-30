@@ -15,10 +15,12 @@ namespace CurioExchange.Controllers
     public class TradesController : Controller
     {
         private IUserPieceAgent _userPieceAgent;
+        private IUserSetAgent _userSetAgent;
 
-        public TradesController(IUserPieceAgent userPieceAgent)
+        public TradesController(IUserPieceAgent userPieceAgent, IUserSetAgent userSetAgent)
         {
             _userPieceAgent = userPieceAgent;
+            _userSetAgent = userSetAgent;
         }
 
         // GET: Trades
@@ -29,6 +31,10 @@ namespace CurioExchange.Controllers
             model.WantedPieces.AddRange(wanted);
             var owned = await _userPieceAgent.RetrieveTradesOwned(User.Identity.GetUserId());
             model.OwnedPieces.AddRange(owned);
+            var wantedSets = await _userSetAgent.RetrieveTradesWanted(User.Identity.GetUserId());
+            model.WantedSets.AddRange(wantedSets);
+            var ownedSets = await _userSetAgent.RetrieveTradesOwned(User.Identity.GetUserId());
+            model.OwnedSets.AddRange(ownedSets);
             model.Username = User.Identity.Name;
             return View(model);
         }

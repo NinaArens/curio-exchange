@@ -25,6 +25,9 @@ namespace CurioExchange.Plumbing
             Mapper.CreateMap<UserPiece, UserPieceModel>();
             Mapper.CreateMap<UserPieceModel, UserPiece>();
 
+            Mapper.CreateMap<UserSet, UserSetModel>();
+            Mapper.CreateMap<UserSetModel, UserSet>();
+
             Mapper.CreateMap<AspNetUser, AspNetUserModel>();
             Mapper.CreateMap<AspNetUserModel, AspNetUser>();
         }
