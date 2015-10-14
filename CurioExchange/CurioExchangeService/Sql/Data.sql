@@ -2206,3 +2206,15 @@ INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Seventh Lock Of Blue-black
 INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Eighth Lock Of Blue-black Dreadlocks', 0, 1306)
 INSERT INTO dbo.Pieces VALUES ('Blue-black Dreadlocks Ninth Lock Of Blue-black Dreadlocks', 0, 1306)
 
+INSERT INTO dbo.Sets VALUES ('Cinnamon Tangles', 47)
+
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Base Of Cinnamon Tangles', 1, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles First Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Second Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Third Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Fourth Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Fifth Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Sixth Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Seventh Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Eighth Lock Of Cinnamon Tangles', 0, 1307)
+INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Ninth Lock Of Cinnamon Tangles', 0, 1307)
