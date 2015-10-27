@@ -2218,3 +2218,16 @@ INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Sixth Lock Of Cinnamon Tangles'
 INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Seventh Lock Of Cinnamon Tangles', 0, 1307)
 INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Eighth Lock Of Cinnamon Tangles', 0, 1307)
 INSERT INTO dbo.Pieces VALUES ('Cinnamon Tangles Ninth Lock Of Cinnamon Tangles', 0, 1307)
+
+INSERT INTO dbo.Sets VALUES ('Black Scruff', 47)
+
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Base Of Black Scruff', 1, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff First Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Second Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Third Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Fourth Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Fifth Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Sixth Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Seventh Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Eighth Lock Of Black Scruff', 0, 1308)
+INSERT INTO dbo.Pieces VALUES ('Black Scruff Ninth Lock Of Black Scruff', 0, 1308)
