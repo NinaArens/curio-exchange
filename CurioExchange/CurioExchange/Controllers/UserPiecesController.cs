@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using CurioExchange.ViewModels;
 using CurioExchange.Models;
 using System.Text.RegularExpressions;
 
@@ -160,6 +158,11 @@ namespace CurioExchange.Controllers
             return View();
         }
 
+        public ActionResult ImportOwnedPartials()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<ActionResult> ImportOwned(string import, bool purge)
         {
@@ -300,6 +303,91 @@ namespace CurioExchange.Controllers
         }
 
         [HttpPost]
+        public async Task<ActionResult> ImportOwnedPartials(string import, bool purge)
+        {
+            try
+            {
+                if (purge)
+                {
+                    await _userPieceAgent.DeleteUserPieces(User.Identity.GetUserId(), true);
+                }
+
+                if (import.Contains("--"))
+                {
+                    if (import.Contains("*[ PARTIAL"))
+                    {
+                        var splitlist = import.Split(new string[] { "--" }, StringSplitOptions.RemoveEmptyEntries);
+
+                        if (splitlist.Count() > 0)
+                        {
+                            foreach (var item in splitlist)
+                            {
+                                //var set = Regex.Matches(item, @"\*+\[ PARTIAL ([\w\s-']+) \]\*+");
+
+                                var set = Regex.Matches(item, @"Curio Set: (.*)\n");
+
+                                var pieces = Regex.Matches(item, @"([\w\s-':]{29})(?:Complete|Missing)", RegexOptions.Multiline);
+
+                                if (set.Count > 0 & pieces.Count > 1)
+                                {
+                                    foreach (Match piece in pieces)
+                                    {
+                                        if (piece.Groups[0].Value.EndsWith("Complete"))
+                                        {
+                                            var missingpiece = piece.Groups[1].Value;
+                                            missingpiece = missingpiece.Trim().Replace(":", "");
+
+                                            var pieceId = await _pieceAgent.GetPieceIdForName(set[0].Groups[1].Value.Replace("\r", ""), missingpiece);
+
+                                            if (pieceId > 0)
+                                            {
+                                                await _userPieceAgent.CreaseUserPiece(new UserPieceModel
+                                                {
+                                                    Owned = true,
+                                                    Piece_Id = pieceId,
+                                                    User_Id = User.Identity.GetUserId(),
+                                                    Added = DateTime.Now
+                                                });
+                                            }
+                                            else
+                                            {
+                                                if (TempData["ErrorMessage"] == null || TempData["ErrorMessage"].ToString() == "")
+                                                {
+                                                    TempData["ErrorMessage"] = "The following piece(s) do not yet exist in the database: ";
+                                                }
+                                                TempData["ErrorMessage"] += set[0].Groups[1].Value + " " + missingpiece + ", ";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Please include the starred header of CURIO SHOW PIECE <id>>.";
+                    }
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Please include the trailing dashed line of CURIO SHOW PIECE <id>>.";
+                }
+
+                if (TempData.Values.Count > 0 && (TempData["ErrorMessage"] != null || TempData["ErrorMessage"].ToString() != ""))
+                {
+                    TempData["ErrorMessage"] = TempData["ErrorMessage"].ToString().Remove(TempData["ErrorMessage"].ToString().Length - 2);
+                    TempData["ErrorMessage"] += ".";
+                }
+
+                return RedirectToAction("OwnedPieces");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
         public async Task<ActionResult> ProcessOwned(int[] selectedOwned, string button)
         {
             if (selectedOwned != null && selectedOwned.Count() > 0 && button == "Delete selected pieces")
@@ -338,5 +426,7 @@ namespace CurioExchange.Controllers
             }
             return RedirectToAction("WantedPieces");
         }
+
+
     }
 }

@@ -1,10 +1,5 @@
-﻿using CurioExchangeService.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace CurioExchangeService.Entities
 {
@@ -24,6 +19,6 @@ namespace CurioExchangeService.Entities
 
         public DateTime Added { get; set; }
 
-        public Nullable<int> OwnedID { get; set; }
+        public int? OwnedID { get; set; }
     }
 }

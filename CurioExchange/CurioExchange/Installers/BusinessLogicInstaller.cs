@@ -4,10 +4,6 @@ using Castle.Windsor;
 using CurioExchange.Agents;
 using CurioExchange.Interfaces;
 using CurioExchangeService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace CurioExchange.Installers
 {

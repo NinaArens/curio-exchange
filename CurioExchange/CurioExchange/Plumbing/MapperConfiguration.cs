@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using AutoMapper;
+﻿using AutoMapper;
 using CurioExchangeService.Entities;
 using CurioExchange.Models;
-using CurioExchangeService.Entities;
 
 namespace CurioExchange.Plumbing
 {

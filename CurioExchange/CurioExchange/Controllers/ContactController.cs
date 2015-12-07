@@ -1,12 +1,8 @@
 ﻿using CurioExchange.Models;
 using SendGrid;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CurioExchange.Controllers

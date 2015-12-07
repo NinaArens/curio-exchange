@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <ApplicationInsightsResourceId>/subscriptions/547f2a22-fecc-4e92-b0cc-b5ee530deac8/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/CurioExchange</ApplicationInsightsResourceId>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -342,6 +343,7 @@
     <Content Include="Views\UserSets\CreateOwned.cshtml" />
     <Content Include="Views\UserSets\OwnedSets.cshtml" />
     <Content Include="Views\UserSets\ImportOwned.cshtml" />
+    <Content Include="Views\UserPieces\ImportOwnedPartials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
